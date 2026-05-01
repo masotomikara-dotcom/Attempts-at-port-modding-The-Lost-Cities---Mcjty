@@ -448,25 +448,6 @@ public class ProfileSetup {
 
         LostCities.LOGGER.info("Creating standard profiles into 'config/lostcities/profiles'");
 
-        initStandardProfiles();
-        LostCityProfileSetupImp setupImp = new LostCityProfileSetupImp();
-            consumer.accept(setupImp);
-        });
-
-        new File(profileDir.toString()).mkdirs();
-        for (Map.Entry<String, LostCityProfile> entry : STANDARD_PROFILES.entrySet()) {
-            String name = entry.getKey();
-            if (!"customized".equals(name)) {
-                LostCityProfile profile = entry.getValue();
-                JsonObject jsonObject = profile.toJson(true);
-                Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-                try {
-                    try (PrintWriter writer = new PrintWriter(new File(profileDir.toString(), name + ".json"))) {
-                        writer.print(gson.toJson(jsonObject));
-                        writer.flush();
-                    }
-                } catch (FileNotFoundException e) {
-                    LostCities.LOGGER.error("Couldn't save profile '{}'!", name);
-                }
+        }
     }
 }
