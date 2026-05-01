@@ -42,25 +42,24 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# --- Patching Phase: Fixing Syntax Errors ---
+# --- Heavy Patching Phase ---
 
-# 1. Clean up Forge remnants
+# 1. Remove Forge-only systems that cause 100+ errors
 rm -rf src/main/java/mcjty/lostcities/datagen
+rm -f src/main/java/mcjty/lostcities/setup/ForgeEventHandlers.java
+
+# 2. Fix Missing Imports for Architectury Registry
+# This adds the necessary import to files using DeferredRegister
+find src -type f -name "*.java" -exec grep -l "DeferredRegister" {} + | xargs sed -i '1i import dev.architectury.registry.registries.DeferredRegister;'
+find src -type f -name "*.java" -exec grep -l "RegistrySupplier" {} + | xargs sed -i '1i import dev.architectury.registry.registries.RegistrySupplier;'
+
+# 3. Correct the Registry.create syntax (Final Fix)
+find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(Registries\.\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, Registries.\1)/g' {} +
+
+# 4. Clean up Forge annotations
 find src -type f -name "*.java" -exec sed -i 's/@Mod(.*)//g' {} +
 find src -type f -name "*.java" -exec sed -i 's/@EventBusSubscriber.*//g' {} +
-
-# 2. Fix DeferredRegister syntax (The previous sed created invalid Java code)
-# Target: DeferredRegister.create(LostCities.MODID, (STUFF_REGISTRY_KEY, LostCities.MODID);
-# Fix to: DeferredRegister.create(LostCities.MODID, STUFF_REGISTRY_KEY);
-find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(LostCities.MODID, (Registries.\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, Registries.\1)/g' {} +
-find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(LostCities.MODID, (\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, \1)/g' {} +
-
-# 3. Fix remaining common Forge imports
-find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.fml.common.Mod;//g' {} +
-find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.registries.ForgeRegistries;//g' {} +
-
-# 4. Final syntax cleanup for Registry suppliers
-find src -type f -name "*.java" -exec sed -i 's/RegistryObject/RegistrySupplier/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.*//g' {} +
 
 # Metadata & Entrypoint
 mkdir -p src/main/resources
@@ -96,6 +95,11 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# Run Build
+# Build and Sync
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
+
+# Auto-push to GitHub
+git add .
+git commit -m "Auto-patch: Fix registry imports and remove Forge handlers"
+git push origin 1.20.1
