@@ -8,8 +8,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import dev.architectury.utils.Env;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -21,8 +19,8 @@ import java.nio.file.Path;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-@Mod(LostCities.MODID)
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+
+
 public class LostCities {
     public static final String MODID = "lostcities";
 
@@ -64,7 +62,6 @@ public class LostCities {
         return LOGGER;
     }
 
-    private void onConstructModEvent(FMLConstructModEvent event) {
         event.enqueueWork(() -> {
             event.getIMCStream(ILostCities.GET_LOST_CITIES_PRE::equals).forEach(message -> {
                 Supplier<Function<ILostCitiesPre, Void>> supplier = message.getMessageSupplier();
@@ -73,7 +70,6 @@ public class LostCities {
         });
     }
 
-    private void processIMC(final InterModProcessEvent event) {
         event.getIMCStream(ILostCities.GET_LOST_CITIES::equals).forEach(message -> {
             Supplier<Function<ILostCities, Void>> supplier = message.getMessageSupplier();
             supplier.get().apply(lostCitiesImp);
