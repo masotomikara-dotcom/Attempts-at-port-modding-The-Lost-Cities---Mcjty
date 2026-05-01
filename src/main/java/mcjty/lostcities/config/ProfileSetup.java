@@ -468,10 +468,5 @@ public class ProfileSetup {
                 } catch (FileNotFoundException e) {
                     LostCities.LOGGER.error("Couldn't save profile '{}'!", name);
                 }
-            }
-        }
-
-        LostCities.LOGGER.info("Reading existing profiles from 'config/lostcities/profiles'");
-        readProfiles(profileDir);
     }
 }
