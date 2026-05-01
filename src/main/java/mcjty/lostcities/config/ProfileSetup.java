@@ -408,10 +408,7 @@ public class ProfileSetup {
         profile.CITY_PERLIN_INNERSCALE = 0.1;
         STANDARD_PROFILES.put(profile.getName(), profile);
     }
-    public static void setupProfiles() {
-        LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
-    public static void setupProfiles() {
-        mcjty.lostcities.LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
+
     public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
