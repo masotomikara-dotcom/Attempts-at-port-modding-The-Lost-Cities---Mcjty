@@ -602,7 +602,6 @@ public class LostCityProfile implements ILostCityProfile {
         if (liquidBlock == null) {
             Block b = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(LIQUID_BLOCK));
             if (b == null) {
-                ModSetup.getLogger().error("Bad liquid block: {}!", LIQUID_BLOCK);
                 liquidBlock = Blocks.WATER.defaultBlockState();
             } else {
                 liquidBlock = b.defaultBlockState();
@@ -615,7 +614,6 @@ public class LostCityProfile implements ILostCityProfile {
         if (baseBlock == null) {
             Block b = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(BASE_BLOCK));
             if (b == null) {
-                ModSetup.getLogger().error("Bad base block: {}!", BASE_BLOCK);
                 baseBlock = Blocks.STONE.defaultBlockState();
             } else {
                 baseBlock = b.defaultBlockState();

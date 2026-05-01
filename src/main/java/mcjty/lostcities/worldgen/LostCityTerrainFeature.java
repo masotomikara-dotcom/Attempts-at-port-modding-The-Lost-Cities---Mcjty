@@ -1836,7 +1836,6 @@ public class LostCityTerrainFeature {
         BlockPos pos = info.getRelativePos(rx, oy + y, rz);
         BlockEntityType type = getTypeForBlock(b);
         if (type == null) {
-            ModSetup.getLogger().warn("Error getting type for block: " + b.getBlock());
             return b;
         }
         CompoundTag tag = inf.tag().copy();
@@ -1979,7 +1978,6 @@ public class LostCityTerrainFeature {
                 createLoot(info, rand, world, pos, condition, this.provider);
             }
         } else if (te == null) {
-            ModSetup.getLogger().error("Error setting loot at {},{},{}", pos.getX(), pos.getY(), pos.getZ());
         }
     }
 

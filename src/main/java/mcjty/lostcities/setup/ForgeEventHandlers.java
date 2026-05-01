@@ -141,7 +141,6 @@ public class ForgeEventHandlers {
             if (!profile.SPAWN_BIOME.isEmpty()) {
                 final Biome spawnBiome = ForgeRegistries.BIOMES.getValue(new ResourceLocation(profile.SPAWN_BIOME));
                 if (spawnBiome == null) {
-                    ModSetup.getLogger().error("Cannot find biome '{}' for the player to spawn in !", profile.SPAWN_BIOME);
                 } else {
                     isSuitable = blockPos -> world.getBiome(blockPos).value() == spawnBiome;
                     needsCheck = true;
@@ -149,7 +148,6 @@ public class ForgeEventHandlers {
             } else if (!profile.SPAWN_CITY.isEmpty()) {
                 final PredefinedCity city = AssetRegistries.PREDEFINED_CITIES.get(world, profile.SPAWN_CITY);
                 if (city == null) {
-                    ModSetup.getLogger().error("Cannot find city '{}' for the player to spawn in !", profile.SPAWN_CITY);
                 } else {
                     float sqradius = getSqRadius(city.getRadius(), 0.8f);
                     isSuitable = blockPos -> city.getDimension() == serverLevel.dimension() &&
