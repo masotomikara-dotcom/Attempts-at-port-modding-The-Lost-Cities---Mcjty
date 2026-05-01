@@ -22,6 +22,7 @@ group = 'mcjty.lostcities'
 repositories {
     maven { url "https://maven.architectury.dev/" }
     maven { url "https://api.modrinth.com/maven" }
+    flatDir { dirs 'libs' }
 }
 
 dependencies {
@@ -31,8 +32,7 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Using Modrinth Maven with the correct slug and version ID for 1.20.1 Fabric
-    modImplementation "maven.modrinth:mcjtylib:v8.0.3"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -77,6 +77,5 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-rm -rf libs/
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
