@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Upgrade Gradle to 8.7 for Java 17/21 compatibility
+# Upgrade Gradle
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
 # Configure settings.gradle
@@ -14,7 +14,7 @@ pluginManagement {
 rootProject.name = 'lostcities'
 EOM
 
-# Configure build.gradle with Mojmap and Architectury
+# Configure build.gradle
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -42,33 +42,27 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# --- Start Patching Phase ---
+# --- Patching Phase: Fixing Syntax Errors ---
 
-# Remove Forge-specific DataGen (Incompatible with Fabric)
+# 1. Clean up Forge remnants
 rm -rf src/main/java/mcjty/lostcities/datagen
-
-# Remove Forge @Mod annotations and event subscribers
 find src -type f -name "*.java" -exec sed -i 's/@Mod(.*)//g' {} +
 find src -type f -name "*.java" -exec sed -i 's/@EventBusSubscriber.*//g' {} +
+
+# 2. Fix DeferredRegister syntax (The previous sed created invalid Java code)
+# Target: DeferredRegister.create(LostCities.MODID, (STUFF_REGISTRY_KEY, LostCities.MODID);
+# Fix to: DeferredRegister.create(LostCities.MODID, STUFF_REGISTRY_KEY);
+find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(LostCities.MODID, (Registries.\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, Registries.\1)/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(LostCities.MODID, (\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, \1)/g' {} +
+
+# 3. Fix remaining common Forge imports
 find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.fml.common.Mod;//g' {} +
+find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.registries.ForgeRegistries;//g' {} +
 
-# Replace legacy javax annotations with JetBrains standard
-find src -type f -name "*.java" -exec sed -i 's/import javax.annotation.Nonnull;/import org.jetbrains.annotations.NotNull;/g' {} +
-find src -type f -name "*.java" -exec sed -i 's/import javax.annotation.Nullable;/import org.jetbrains.annotations.Nullable;/g' {} +
-find src -type f -name "*.java" -exec sed -i 's/@Nonnull/@NotNull/g' {} +
+# 4. Final syntax cleanup for Registry suppliers
+find src -type f -name "*.java" -exec sed -i 's/RegistryObject/RegistrySupplier/g' {} +
 
-# Redirect Forge side-loading logic to Architectury Platform
-find src -type f -name "*.java" -exec sed -i 's/DistExecutor.unsafeRunWhenOn/if (dev.architectury.platform.Platform.getEnv().isClient())/g' {} +
-
-# Fix Registry system (Forge DeferredRegister -> Architectury)
-find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create/DeferredRegister.create(LostCities.MODID, /g' {} +
-find src -type f -name "*.java" -exec sed -i 's/.register(IEventBus.*)//g' {} +
-
-# Clean up remaining Forge lifecycle imports
-find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;//g' {} +
-find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;//g' {} +
-
-# Prepare Fabric metadata
+# Metadata & Entrypoint
 mkdir -p src/main/resources
 cat <<EOM > src/main/resources/fabric.mod.json
 {
@@ -90,7 +84,6 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# Create the Fabric-compatible main entry point
 mkdir -p src/main/java/mcjty/lostcities
 cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
 package mcjty.lostcities;
@@ -103,6 +96,6 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# Finalize and Build
+# Run Build
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
