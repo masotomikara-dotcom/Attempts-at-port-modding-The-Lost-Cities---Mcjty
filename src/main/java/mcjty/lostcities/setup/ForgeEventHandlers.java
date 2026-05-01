@@ -42,7 +42,7 @@ import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import dev.architectury.event.EventResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;

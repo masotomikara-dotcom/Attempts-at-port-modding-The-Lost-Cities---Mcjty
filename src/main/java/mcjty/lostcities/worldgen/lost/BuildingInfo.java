@@ -28,7 +28,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.MinecraftForge;
+import dev.architectury.platform.Platform;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

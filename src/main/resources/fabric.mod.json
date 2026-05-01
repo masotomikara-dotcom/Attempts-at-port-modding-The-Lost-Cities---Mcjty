@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "lostcities",
+  "version": "1.20.1",
+  "name": "LostCities",
+  "description": "Generate cities all over the world",
+  "authors": [
+    "McJty"
+  ],
+  "contact": {
+    "homepage": "http://github.com/McJtyMods/LostCities/",
+    "issues": "http://github.com/McJtyMods/LostCities/issues"
+  },
+  "license": "MIT",
+  "icon": "pack.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "mcjty.lostcities.FabricEntrypoint"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.20.1",
+    "fabric": "*",
+    "architectury": "*"
+  }
+}

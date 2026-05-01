@@ -12,7 +12,7 @@ import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import dev.architectury.event.EventResult;
 
 public class ClientEventHandlers {
 

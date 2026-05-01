@@ -4,7 +4,7 @@ import mcjty.lostcities.api.ILostCityProfileSetup;
 import mcjty.lostcities.config.ProfileSetup;
 import mcjty.lostcities.network.PacketHandler;
 import mcjty.lostcities.worldgen.lost.cityassets.AssetRegistries;
-import net.minecraftforge.common.MinecraftForge;
+import dev.architectury.platform.Platform;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
