@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class LostCityProfile implements ILostCityProfile {
 
@@ -599,7 +598,7 @@ public class LostCityProfile implements ILostCityProfile {
 
     public BlockState getLiquidBlock() {
         if (liquidBlock == null) {
-            Block b = net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(LIQUID_BLOCK));
+            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(LIQUID_BLOCK));
             if (b == null) {
                 liquidBlock = Blocks.WATER.defaultBlockState();
             } else {
@@ -611,7 +610,7 @@ public class LostCityProfile implements ILostCityProfile {
 
     public BlockState getBaseBlock() {
         if (baseBlock == null) {
-            Block b = net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(BASE_BLOCK));
+            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(BASE_BLOCK));
             if (b == null) {
                 baseBlock = Blocks.STONE.defaultBlockState();
             } else {

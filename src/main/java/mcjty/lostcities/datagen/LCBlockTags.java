@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import java.util.Set;
@@ -37,7 +36,7 @@ public class LCBlockTags extends BlockTagsProvider {
             tag(LostTags.FOLIAGE_TAG).addTag(tag);
         }
         tag(LostTags.EASY_BREAKABLE_TAG).addTags(Tags.Blocks.GLASS);
-        for (Block block : net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.gets()) {
+        for (Block block : net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.gets()) {
             if (block.defaultBlockState().getLightEmission() > 0) {
                 tag(LostTags.LIGHTS_TAG).add(block);
             }

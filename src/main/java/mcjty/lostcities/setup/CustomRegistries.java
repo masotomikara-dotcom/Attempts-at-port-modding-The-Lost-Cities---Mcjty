@@ -7,18 +7,17 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DataPackRegistryEvent;
-import net.minecraftforge.registries.DeferredRegister;
 
 public class CustomRegistries {
 
     public static final ResourceKey<Registry<BuildingRE>> BUILDING_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "buildings"));
-    public static final DeferredRegister<BuildingRE> BUILDING_DEFERRED_REGISTER = DeferredRegister.create(BUILDING_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
+    public static final DeferredRegister<BuildingRE> BUILDING_DEFERRED_REGISTER = DeferredRegister.create("building", mcjty.lostcities.LostCities.MODID);
 
     public static final ResourceKey<Registry<PaletteRE>> PALETTE_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "palettes"));
-    public static final DeferredRegister<PaletteRE> PALETTE_DEFERRED_REGISTER = DeferredRegister.create(PALETTE_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
+    public static final DeferredRegister<PaletteRE> PALETTE_DEFERRED_REGISTER = DeferredRegister.create("palette", mcjty.lostcities.LostCities.MODID);
 
     public static final ResourceKey<Registry<BuildingPartRE>> PART_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "parts"));
-    public static final DeferredRegister<BuildingPartRE> PART_DEFERRED_REGISTER = DeferredRegister.create(PART_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
+    public static final DeferredRegister<BuildingPartRE> PART_DEFERRED_REGISTER = DeferredRegister.create("part", mcjty.lostcities.LostCities.MODID);
 
     public static final ResourceKey<Registry<StyleRE>> STYLE_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "styles"));
     public static final DeferredRegister<StyleRE> STYLE_DEFERRED_REGISTER = DeferredRegister.create(STYLE_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
@@ -42,7 +41,7 @@ public class CustomRegistries {
     public static final DeferredRegister<PredefinedCityRE> PREDEFINEDCITIES_DEFERRED_REGISTER = DeferredRegister.create(PREDEFINEDCITIES_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
 
     public static final ResourceKey<Registry<PredefinedSphereRE>> PREDEFINEDSPHERES_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "predefinedspheres"));
-    public static final DeferredRegister<PredefinedSphereRE> PREDEFINEDSPHERES_DEFERRED_REGISTER = DeferredRegister.create(PREDEFINEDSPHERES_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
+    public static final DeferredRegister<PredefinedSphereRE> PREDEFINEDSPHERES_DEFERRED_REGISTER = DeferredRegister.create("predefined_spheres", mcjty.lostcities.LostCities.MODID);
 
     public static final ResourceKey<Registry<ScatteredRE>> SCATTERED_REGISTRY_KEY = ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, "scattered"));
     public static final DeferredRegister<ScatteredRE> SCATTERED_DEFERRED_REGISTER = DeferredRegister.create(SCATTERED_REGISTRY_KEY, mcjty.lostcities.LostCities.MODID);
