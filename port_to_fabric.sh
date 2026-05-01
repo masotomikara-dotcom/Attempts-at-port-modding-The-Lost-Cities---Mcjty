@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Upgrade Gradle
+# 1. Upgrade Gradle
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
-# Configure settings.gradle
+# 2. Configure build files
 cat <<EOM > settings.gradle
 pluginManagement {
     repositories {
@@ -14,7 +14,6 @@ pluginManagement {
 rootProject.name = 'lostcities'
 EOM
 
-# Configure build.gradle
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -42,23 +41,21 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# --- Heavy Patching Phase ---
+# --- Patching Logic ---
 
-# 1. Remove Forge-only systems that cause 100+ errors
+# Remove incompatible Forge files
 rm -rf src/main/java/mcjty/lostcities/datagen
 rm -f src/main/java/mcjty/lostcities/setup/ForgeEventHandlers.java
 
-# 2. Fix Missing Imports for Architectury Registry
-# This adds the necessary import to files using DeferredRegister
-find src -type f -name "*.java" -exec grep -l "DeferredRegister" {} + | xargs sed -i '1i import dev.architectury.registry.registries.DeferredRegister;'
-find src -type f -name "*.java" -exec grep -l "RegistrySupplier" {} + | xargs sed -i '1i import dev.architectury.registry.registries.RegistrySupplier;'
+# Safe Import: Add Architectury imports AFTER the package declaration
+# We use a more robust way to avoid syntax errors
+find src -type f -name "*.java" -exec sed -i '/package /a import dev.architectury.registry.registries.DeferredRegister;\nimport dev.architectury.registry.registries.RegistrySupplier;' {} +
 
-# 3. Correct the Registry.create syntax (Final Fix)
+# Fix Registry syntax: Ensure (MODID, Registry) order
 find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(Registries\.\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, Registries.\1)/g' {} +
 
-# 4. Clean up Forge annotations
+# Clean Forge-specific code
 find src -type f -name "*.java" -exec sed -i 's/@Mod(.*)//g' {} +
-find src -type f -name "*.java" -exec sed -i 's/@EventBusSubscriber.*//g' {} +
 find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.*//g' {} +
 
 # Metadata & Entrypoint
@@ -95,11 +92,6 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# Build and Sync
+# 3. Build
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
-
-# Auto-push to GitHub
-git add .
-git commit -m "Auto-patch: Fix registry imports and remove Forge handlers"
-git push origin 1.20.1
