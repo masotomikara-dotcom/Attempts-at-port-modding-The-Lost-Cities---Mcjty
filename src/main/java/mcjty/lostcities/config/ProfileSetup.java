@@ -412,7 +412,7 @@ public class ProfileSetup {
     public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
-}
+    public static void setupProfiles() {
+        LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
-}
 }
