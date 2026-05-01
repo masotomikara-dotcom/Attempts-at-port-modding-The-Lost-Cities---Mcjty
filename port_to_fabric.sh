@@ -55,7 +55,7 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 6. Build Configuration
+# 6. Build Configuration (Use Modrinth Maven)
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -65,7 +65,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    flatDir { dirs 'libs' }
+    maven { url "https://api.modrinth.com/maven" }
 }
 
 sourceSets {
@@ -82,7 +82,9 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    // McJtyLib for 1.20.1 from Modrinth
+    modImplementation "maven.modrinth:mcjtylib:v8.0.3"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -94,7 +96,10 @@ cat <<EOM > gradle.properties
 org.gradle.jvmargs=-Xmx2G
 org.gradle.parallel=true
 EOM
-mkdir -p libs
-curl -L -s -o libs/mcjtylib.jar "https://www.cursemaven.com/curse/maven/mcjtylib-233105/4615378/mcjtylib-233105-4615378.jar"
+
+# 7. Clean up old failed jars
+rm -rf libs/
+
+# 8. Run Build
 chmod +x gradlew
 ./gradlew clean build --stacktrace
