@@ -32,7 +32,7 @@ public class BlockMatcher implements Predicate<BlockState> {
             TagKey<Block> tagKey = TagKey.create(Registries.BLOCK, new net.minecraft.resources.ResourceLocation(matcher.substring(1)));
             return state -> state.is(tagKey);
         } else {
-            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(matcher));
+            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(matcher));
             return state -> state.getBlock() == b;
         }
     }
@@ -46,7 +46,7 @@ public class BlockMatcher implements Predicate<BlockState> {
             TagKey<Block> tagKey = TagKey.create(Registries.BLOCK, new net.minecraft.resources.ResourceLocation(matcher.substring(1)));
             return state -> !state.is(tagKey);
         } else {
-            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(matcher));
+            Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(matcher));
             return state -> state.getBlock() != b;
         }
     }

@@ -317,7 +317,7 @@ public class ForgeEventHandlers {
         Direction direction = Blocks.BLACK_BED.getBedDirection(state, world, pos);
         Block b1 = world.getBlockState(pos.below()).getBlock();
         Block b2 = world.getBlockState(pos.relative(direction.getOpposite()).below()).getBlock();
-        Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(Config.SPECIAL_BED_BLOCK.get()));
+        Block b = net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(Config.SPECIAL_BED_BLOCK.get()));
         if (b1 != b || b2 != b) {
             return false;
         }

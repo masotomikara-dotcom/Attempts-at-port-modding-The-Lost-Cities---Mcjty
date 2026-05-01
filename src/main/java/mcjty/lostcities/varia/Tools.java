@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 public class Tools {
+    public static String stateToString(net.minecraft.world.level.block.state.BlockState state) { return state.toString(); }
     public static <T> T getRandomFromList(Random random, List<T> list, Function<T, Float> weightGetter) {
         if (list == null || list.isEmpty()) return null;
         float totalWeight = 0;
