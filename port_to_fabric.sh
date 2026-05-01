@@ -39,10 +39,7 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 4. Clean up Forge remnants
-rm -rf src/main/resources/META-INF
-
-# 5. Global Code Patching
+# 4. Global Code Patching
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
@@ -50,7 +47,7 @@ find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.javafmlmo
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.Dist/net.fabricmc.api.EnvType/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.OnlyIn/net.fabricmc.api.Environment/g' {} +
 
-# 6. Create Entrypoint
+# 5. Create Entrypoint
 cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
 package mcjty.lostcities;
 import net.fabricmc.api.ModInitializer;
@@ -62,7 +59,7 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 7. Build Configuration
+# 6. Build Configuration with Local Libs
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -72,8 +69,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    maven { url "https://www.cursemaven.com" }
-    maven { url "https://maven.terraformersmc.com/" }
+    flatDir { dirs 'libs' }
 }
 
 sourceSets {
@@ -90,8 +86,7 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
-    
-modImplementation "curse.maven:mcjtylib-233105:4615378"
+implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -99,10 +94,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-cat <<EOM > gradle.properties
-org.gradle.jvmargs=-Xmx2G
-org.gradle.parallel=true
-EOM
+# 7. DOWNLOAD MCJTYLIB MANUALLY
+mkdir -p libs
+curl -L -s -o libs/mcjtylib.jar https://mediafilez.forgecdn.net/files/4615/378/mcjtylib-1.20-8.0.3.jar
 
 # 8. FINAL BUILD
 chmod +x gradlew
