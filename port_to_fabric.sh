@@ -36,10 +36,7 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 3. Clean up Forge remnants
-rm -rf src/main/resources/META-INF
-
-# 4. Global Code Patching
+# 3. Global Code Patching
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
@@ -47,19 +44,7 @@ find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.javafmlmo
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.Dist/net.fabricmc.api.EnvType/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.OnlyIn/net.fabricmc.api.Environment/g' {} +
 
-# 5. Create Entrypoint
-cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
-package mcjty.lostcities;
-import net.fabricmc.api.ModInitializer;
-public class FabricEntrypoint implements ModInitializer {
-    @Override
-    public void onInitialize() {
-        new LostCities();
-    }
-}
-EOM
-
-# 6. Build Configuration
+# 4. Build Configuration
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -99,5 +84,9 @@ org.gradle.jvmargs=-Xmx2G
 org.gradle.parallel=true
 EOM
 
+# 5. UPGRADE GRADLE FIRST
 chmod +x gradlew
+./gradlew wrapper --gradle-version 8.7
+
+# 6. FINAL BUILD
 ./gradlew clean build
