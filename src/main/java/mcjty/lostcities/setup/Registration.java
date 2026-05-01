@@ -25,7 +25,7 @@ public class Registration {
     public static final RegistryObject<LostCityFeature> LOSTCITY_FEATURE = FEATURES.register("lostcity", LostCityFeature::new);
     public static final RegistryObject<LostCitySphereFeature> LOSTCITY_SPHERE_FEATURE = FEATURES.register("spheres", LostCitySphereFeature::new);
 
-    public static final ResourceLocation LOSTCITY = new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, "lostcity");
+    public static final ResourceLocation LOSTCITY = new net.minecraft.resources.ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, "lostcity");
 
     public static final ResourceKey<DimensionType> DIMENSION_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, LOSTCITY);
     public static final ResourceKey<Level> DIMENSION = ResourceKey.create(Registries.DIMENSION, LOSTCITY);

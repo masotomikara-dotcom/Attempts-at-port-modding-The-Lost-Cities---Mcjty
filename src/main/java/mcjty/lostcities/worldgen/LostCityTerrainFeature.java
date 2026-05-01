@@ -87,7 +87,7 @@ public class LostCityTerrainFeature {
     public final LostCityProfile profile;
     public final RandomSource rand;
 
-    private final TimedCache<ChunkCoord, ChunkHeightmap> cachedHeightmaps = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
+    private final TimedCache<ChunkCoord, ChunkHeightmap> cachedHeightmaps = new TimedCache<>(() -> 60);
     private final Statistics statistics = new Statistics();
     private final Map<Block, BlockEntityType> typeCache = new HashMap<>();
 
@@ -1962,7 +1962,7 @@ public class LostCityTerrainFeature {
         if (randomValue == null) {
             throw new RuntimeException("Condition '" + cnd.getName() + "' did not return a valid mob!");
         }
-        return new ResourceLocation(randomValue);
+        return new net.minecraft.resources.ResourceLocation(randomValue);
     }
 
 
@@ -1999,11 +1999,11 @@ public class LostCityTerrainFeature {
                     }
                 };
                 String randomValue = AssetRegistries.CONDITIONS.getOrThrow(world, lootTable).getRandomValue(random, conditionContext);
-//                ((LockableLootTileEntity) tileentity).setLootTable(new ResourceLocation(randomValue), random.nextLong());
+//                ((LockableLootTileEntity) tileentity).setLootTable(new net.minecraft.resources.ResourceLocation(randomValue), random.nextLong());
 //                tileentity.markDirty();
 //                if (LostCityConfiguration.DEBUG) {
 //                }
-                RandomizableContainerBlockEntity.setLootTable(world, random, pos, new ResourceLocation(randomValue));
+                RandomizableContainerBlockEntity.setLootTable(world, random, pos, new net.minecraft.resources.ResourceLocation(randomValue));
             }
         }
     }

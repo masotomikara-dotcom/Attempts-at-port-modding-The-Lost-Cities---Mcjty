@@ -140,9 +140,9 @@ public class BuildingInfo implements ILostChunkInfo {
     }
 
     // BuildingInfo cache
-    private static final TimedCache<ChunkCoord, BuildingInfo> BUILDING_INFO_MAP = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
-    private static final TimedCache<ChunkCoord, LostChunkCharacteristics> CITY_INFO_MAP = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
-    private static final TimedCache<ChunkCoord, Integer> CITY_LEVEL_CACHE = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
+    private static final TimedCache<ChunkCoord, BuildingInfo> BUILDING_INFO_MAP = new TimedCache<>(() -> 60);
+    private static final TimedCache<ChunkCoord, LostChunkCharacteristics> CITY_INFO_MAP = new TimedCache<>(() -> 60);
+    private static final TimedCache<ChunkCoord, Integer> CITY_LEVEL_CACHE = new TimedCache<>(() -> 60);
 
     public void addTorchTodo(BlockPos index) {
         torchTodo.add(index);

@@ -11,7 +11,7 @@ import net.minecraft.world.level.biome.Biome;
 
 public class BiomeInfo {
 
-    private static final TimedCache<ChunkCoord, BiomeInfo> BIOME_INFO_CACHE = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
+    private static final TimedCache<ChunkCoord, BiomeInfo> BIOME_INFO_CACHE = new TimedCache<>(() -> 60);
 
     private Holder<Biome> mainBiome;
 

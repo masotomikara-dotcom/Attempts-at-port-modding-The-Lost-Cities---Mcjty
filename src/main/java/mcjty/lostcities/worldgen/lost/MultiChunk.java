@@ -26,7 +26,7 @@ public class MultiChunk {
     record MB(String name, int offsetX, int offsetZ) {}
 
     // Multichunks are indexed by the chunk coordinates divided by the area size
-    private static final TimedCache<ChunkCoord, MultiChunk> MULTICHUNKS = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
+    private static final TimedCache<ChunkCoord, MultiChunk> MULTICHUNKS = new TimedCache<>(() -> 60);
     public static void cleanCache() {
         MULTICHUNKS.clear();
     }

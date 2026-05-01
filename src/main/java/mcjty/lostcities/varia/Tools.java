@@ -2,7 +2,6 @@ package mcjty.lostcities.varia;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
-
 public class Tools {
     public static <T> T getRandomFromList(Random random, List<T> list, Function<T, Float> weightGetter) {
         if (list == null || list.isEmpty()) return null;

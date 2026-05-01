@@ -227,7 +227,7 @@ public class LostCityProfile implements ILostCityProfile {
         if (iconFile == null || iconFile.isEmpty()) {
             return null;
         }
-        icon = new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, iconFile);
+        icon = new net.minecraft.resources.ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, iconFile);
         return icon;
     }
 
@@ -599,7 +599,7 @@ public class LostCityProfile implements ILostCityProfile {
 
     public BlockState getLiquidBlock() {
         if (liquidBlock == null) {
-            Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new ResourceLocation(LIQUID_BLOCK));
+            Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(LIQUID_BLOCK));
             if (b == null) {
                 liquidBlock = Blocks.WATER.defaultBlockState();
             } else {
@@ -611,7 +611,7 @@ public class LostCityProfile implements ILostCityProfile {
 
     public BlockState getBaseBlock() {
         if (baseBlock == null) {
-            Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new ResourceLocation(BASE_BLOCK));
+            Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(BASE_BLOCK));
             if (b == null) {
                 baseBlock = Blocks.STONE.defaultBlockState();
             } else {

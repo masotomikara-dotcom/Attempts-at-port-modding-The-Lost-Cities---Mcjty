@@ -30,7 +30,7 @@ public class City {
 
     // If cityChance == -1 then this is used to control where cities are
     private static final Map<ResourceKey<Level>, CityRarityMap> CITY_RARITY_MAP = new HashMap<>();
-    private static final TimedCache<ChunkCoord, CityStyle> CITY_STYLE_CACHE = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
+    private static final TimedCache<ChunkCoord, CityStyle> CITY_STYLE_CACHE = new TimedCache<>(() -> 60);
     private static Map<ChunkCoord, PreDefBuildingOffset> OCCUPIED_CHUNKS_BUILDING = null;
     private static Map<ChunkCoord, PredefinedStreet> OCCUPIED_CHUNKS_STREET = null;
 

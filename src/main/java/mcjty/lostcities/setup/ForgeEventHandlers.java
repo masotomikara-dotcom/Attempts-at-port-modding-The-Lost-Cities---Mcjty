@@ -66,7 +66,7 @@ public class ForgeEventHandlers {
     public void onEntityConstructing(AttachCapabilitiesEvent<Entity> event){
         if (event.getObject() instanceof Player) {
             if (!event.getObject().getCapability(PlayerProperties.PLAYER_SPAWN_SET).isPresent()) {
-                event.addCapability(new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, "spawnset"), new PropertiesDispatcher());
+                event.addCapability(new net.minecraft.resources.ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, "spawnset"), new PropertiesDispatcher());
             }
         }
     }
@@ -138,7 +138,7 @@ public class ForgeEventHandlers {
             boolean needsCheck = false;
 
             if (!profile.SPAWN_BIOME.isEmpty()) {
-                final Biome spawnBiome = ForgeRegistries.BIOMES.getValue(new ResourceLocation(profile.SPAWN_BIOME));
+                final Biome spawnBiome = ForgeRegistries.BIOMES.getValue(new net.minecraft.resources.ResourceLocation(profile.SPAWN_BIOME));
                 if (spawnBiome == null) {
                 } else {
                     isSuitable = blockPos -> world.getBiome(blockPos).value() == spawnBiome;
@@ -318,7 +318,7 @@ public class ForgeEventHandlers {
         Direction direction = Blocks.BLACK_BED.getBedDirection(state, world, pos);
         Block b1 = world.getBlockState(pos.below()).getBlock();
         Block b2 = world.getBlockState(pos.relative(direction.getOpposite()).below()).getBlock();
-        Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new ResourceLocation(Config.SPECIAL_BED_BLOCK.get()));
+        Block b = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(new net.minecraft.resources.ResourceLocation(Config.SPECIAL_BED_BLOCK.get()));
         if (b1 != b || b2 != b) {
             return false;
         }

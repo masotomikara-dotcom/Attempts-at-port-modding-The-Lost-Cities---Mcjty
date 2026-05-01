@@ -28,9 +28,9 @@ public class DataTools {
 
     public static ResourceLocation fromName(String name) {
         if (name.contains(":")) {
-            return new ResourceLocation(name);
+            return new net.minecraft.resources.ResourceLocation(name);
         } else {
-            return new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, name);
+            return new net.minecraft.resources.ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, name);
         }
     }
 }
