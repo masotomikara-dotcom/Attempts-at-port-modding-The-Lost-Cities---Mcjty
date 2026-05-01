@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 1. Force Upgrade Gradle Wrapper to version 8.7
-echo "Upgrading Gradle Wrapper..."
+# 1. Force Upgrade Gradle Wrapper to 8.7
+echo "Updating Gradle wrapper..."
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
 # 2. Setup settings.gradle
@@ -16,7 +16,7 @@ pluginManagement {
 rootProject.name = 'lostcities'
 EOM
 
-# 3. Setup build.gradle for Fabric port
+# 3. Setup build.gradle
 echo "Configuring build.gradle..."
 cat <<EOM > build.gradle
 plugins {
@@ -27,8 +27,8 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
+    maven { url "https://api.modrinth.com/maven" } // Official Modrinth Maven
     maven { url "https://www.cursemaven.com" }
-    flatDir { dirs 'libs' }
 }
 
 dependencies {
@@ -38,8 +38,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Using local jar from libs folder to avoid maven resolution issues
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Using McJtyLib from Modrinth (Latest stable for 1.20.1 Fabric)
+    modImplementation "maven.modrinth:mcjtylib:8.0.3-fabric"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -47,7 +47,14 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# 4. Generate Fabric Metadata
+# 4. Global Source Code Patching
+echo "Patching Java source files..."
+# Basic Forge to Architectury/Fabric replacements
+find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
+
+# 5. Create Fabric Metadata
 echo "Generating fabric.mod.json..."
 mkdir -p src/main/resources
 cat <<EOM > src/main/resources/fabric.mod.json
@@ -70,7 +77,7 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 5. Create Fabric Entrypoint
+# 6. Create Entrypoint
 echo "Creating Fabric Entrypoint..."
 mkdir -p src/main/java/mcjty/lostcities
 cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
@@ -79,24 +86,13 @@ import net.fabricmc.api.ModInitializer;
 public class FabricEntrypoint implements ModInitializer {
     @Override
     public void onInitialize() {
-        // LostCities main class initialization
         new LostCities();
     }
 }
 EOM
 
-# 6. Manually download McJtyLib (Fixed version for 1.20.1)
-echo "Downloading McJtyLib dependency..."
-mkdir -p libs
-curl -L -s -o libs/mcjtylib.jar "https://www.cursemaven.com/curse/maven/mcjtylib-233105/4615378/mcjtylib-233105-4615378.jar"
-
-# Check if file download was successful
-if [ ! -s libs/mcjtylib.jar ]; then
-    echo "ERROR: McJtyLib download failed or file is empty!"
-    exit 1
-fi
-
-# 7. Execute Build and export log
-echo "Starting build process..."
+# 7. Final Cleanup and Build
+echo "Starting clean build..."
+rm -rf libs/mcjtylib.jar # Remove the corrupted file from previous runs
 chmod +x gradlew
 ./gradlew clean build --stacktrace 2>&1 | tee build_log.txt
