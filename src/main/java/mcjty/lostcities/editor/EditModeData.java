@@ -27,7 +27,7 @@ public class EditModeData extends SavedData {
 
     @Nonnull
     public static EditModeData getData() {
-        ServerLevel overworld = WorldTools.getOverworld();
+        ServerLevel overworld = Worldworld.getServer().getOverworld();
         DimensionDataStorage storage = overworld.getDataStorage();
         return storage.computeIfAbsent(EditModeData::new, EditModeData::new, NAME);
     }

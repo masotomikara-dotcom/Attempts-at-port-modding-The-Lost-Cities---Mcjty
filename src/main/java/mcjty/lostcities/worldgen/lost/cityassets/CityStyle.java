@@ -2,7 +2,6 @@ package mcjty.lostcities.worldgen.lost.cityassets;
 
 import mcjty.lostcities.api.ILostCityCityStyle;
 import mcjty.lostcities.varia.ChunkCoord;
-import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.worldgen.lost.regassets.CityStyleRE;
 import mcjty.lostcities.worldgen.lost.regassets.data.DataTools;
 import mcjty.lostcities.worldgen.lost.regassets.data.ObjectSelector;

@@ -1,7 +1,6 @@
 package mcjty.lostcities.worldgen.lost.cityassets;
 
 import mcjty.lostcities.api.ILostCityAsset;
-import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.worldgen.lost.regassets.ConditionRE;
 import mcjty.lostcities.worldgen.lost.regassets.data.ConditionPart;
 import mcjty.lostcities.worldgen.lost.regassets.data.DataTools;

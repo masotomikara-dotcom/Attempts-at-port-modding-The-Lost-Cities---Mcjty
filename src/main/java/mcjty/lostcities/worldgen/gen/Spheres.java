@@ -3,7 +3,6 @@ package mcjty.lostcities.worldgen.gen;
 import mcjty.lostcities.api.ILostWorldsChunkGenerator;
 import mcjty.lostcities.config.LostCityProfile;
 import mcjty.lostcities.varia.ChunkCoord;
-import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.worldgen.ChunkDriver;
 import mcjty.lostcities.worldgen.ChunkFixer;
 import mcjty.lostcities.worldgen.IDimensionInfo;

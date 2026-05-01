@@ -2,7 +2,6 @@ package mcjty.lostcities.worldgen.lost.cityassets;
 
 import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.ILostCityAsset;
-import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.worldgen.lost.regassets.PaletteRE;
 import mcjty.lostcities.worldgen.lost.regassets.data.BlockEntry;
 import mcjty.lostcities.worldgen.lost.regassets.data.DataTools;
