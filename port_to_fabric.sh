@@ -27,7 +27,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    maven { url "https://api.modrinth.com/maven" } // Official Modrinth Maven
+    maven { url "https://api.modrinth.com/maven" }
     maven { url "https://www.cursemaven.com" }
 }
 
@@ -38,8 +38,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Using McJtyLib from Modrinth (Latest stable for 1.20.1 Fabric)
-    modImplementation "maven.modrinth:mcjtylib:8.0.3-fabric"
+    // Correct Modrinth Maven format for McJtyLib Fabric
+    modImplementation "maven.modrinth:mcjtylib-fabric:8.0.3"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -49,7 +49,6 @@ EOM
 
 # 4. Global Source Code Patching
 echo "Patching Java source files..."
-# Basic Forge to Architectury/Fabric replacements
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
@@ -93,6 +92,6 @@ EOM
 
 # 7. Final Cleanup and Build
 echo "Starting clean build..."
-rm -rf libs/mcjtylib.jar # Remove the corrupted file from previous runs
+rm -rf libs/ # Delete the local libs folder to prevent corrupted jar errors
 chmod +x gradlew
 ./gradlew clean build --stacktrace 2>&1 | tee build_log.txt
