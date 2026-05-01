@@ -13,7 +13,6 @@ public class IntElement extends GuiElement {
     private String prefix = null;
     private final EditBox field;
     private final String attribute;
-import mcjty.lostcities.LostCities;
 
     public IntElement(GuiLCConfig gui, String page, int x, int y, String attribute) {
         super(page, x, y);

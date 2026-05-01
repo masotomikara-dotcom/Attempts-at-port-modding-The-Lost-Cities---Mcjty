@@ -2,7 +2,6 @@ package mcjty.lostcities.config;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import mcjty.lostcities.LostCities;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
@@ -13,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import mcjty.lostcities.LostCities;
 public class ProfileSetup {
     public static final Map<String, LostCityProfile> STANDARD_PROFILES = new HashMap<>();
     private static void initStandardProfiles() {
@@ -414,5 +412,7 @@ public class ProfileSetup {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     public static void setupProfiles() {
         mcjty.lostcities.LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
+    public static void setupProfiles() {
+        LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }

@@ -1,5 +1,4 @@
 package mcjty.lostcities.varia;
-
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;

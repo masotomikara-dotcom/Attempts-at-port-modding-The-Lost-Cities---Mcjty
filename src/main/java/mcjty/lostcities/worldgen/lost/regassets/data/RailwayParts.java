@@ -13,7 +13,6 @@ public record RailwayParts(List<String> stationUnderground, List<String> station
                            List<String> rails3Split, List<String> railsBend, List<String> railsFlat,
                            List<String> railsDown1, List<String> railsDown2) {
 
-import mcjty.lostcities.LostCities;
     public static final Codec<RailwayParts> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Tools.listOrStringList("stationunderground", "station_underground", RailwayParts::stationUnderground),

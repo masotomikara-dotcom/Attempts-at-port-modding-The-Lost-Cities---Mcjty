@@ -1,6 +1,5 @@
 package mcjty.lostcities.worldgen.lost.cityassets;
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.worldgen.LostCityTerrainFeature;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.tuple.Pair;
@@ -13,7 +12,6 @@ import java.util.*;
  * More efficient representation of a palette useful for a single chunk
  */
 public class CompiledPalette {
-import mcjty.lostcities.LostCities;
 
     private final Map<Character, Object> palette = new HashMap<>();
     private final Map<BlockState, BlockState> damagedToBlock = new HashMap<>();

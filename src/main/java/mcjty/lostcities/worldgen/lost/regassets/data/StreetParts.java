@@ -13,7 +13,6 @@ public record StreetParts(List<String> full, List<String> straight, List<String>
             Tools.listOrStringList("full", "street_full", StreetParts::full),
             Tools.listOrStringList("straight", "street_straight", StreetParts::straight),
             Tools.listOrStringList("end", "street_end", StreetParts::end),
-import mcjty.lostcities.LostCities;
             Tools.listOrStringList("bend", "street_bend", StreetParts::bend),
             Tools.listOrStringList("t", "street_t", StreetParts::t),
             Tools.listOrStringList("none", "street_none", StreetParts::none),

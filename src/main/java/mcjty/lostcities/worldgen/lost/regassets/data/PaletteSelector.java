@@ -13,5 +13,4 @@ public record PaletteSelector(float factor, String palette) {
                     Codec.FLOAT.fieldOf("factor").forGetter(PaletteSelector::factor),
                     Codec.STRING.fieldOf("palette").forGetter(PaletteSelector::palette)
             ).apply(instance, PaletteSelector::new));
-import mcjty.lostcities.LostCities;
 }

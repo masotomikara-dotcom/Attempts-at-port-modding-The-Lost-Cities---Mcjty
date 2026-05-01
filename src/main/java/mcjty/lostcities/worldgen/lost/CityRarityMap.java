@@ -13,7 +13,6 @@ public class CityRarityMap {
         perlinCity = new PerlinNoiseGenerator14(seed, 4);
         this.scale = scale;
         this.offset = offset;
-import mcjty.lostcities.LostCities;
         this.innerScale = innerScale;
     }
 

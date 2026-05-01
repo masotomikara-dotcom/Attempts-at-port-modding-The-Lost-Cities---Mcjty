@@ -13,7 +13,6 @@ public class DoubleElement extends GuiElement {
     private String prefix = null;
     private final EditBox field;
     private final String attribute;
-import mcjty.lostcities.LostCities;
 
     public DoubleElement(GuiLCConfig gui, String page, int x, int y, int w, String attribute) {
         super(page, x, y);

@@ -13,7 +13,6 @@ import java.util.Set;
  * conditions that indicate where the part can be used
  */
 public class PartRef extends ConditionTest {
-import mcjty.lostcities.LostCities;
 
     public static final Codec<PartRef> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

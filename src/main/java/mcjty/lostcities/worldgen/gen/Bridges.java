@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class Bridges {
 
-import mcjty.lostcities.LostCities;
     public static void generateBridges(LostCityTerrainFeature feature, BuildingInfo info) {
         if (info.getHighwayXLevel() == 0 || info.getHighwayZLevel() == 0) {
             // If there is a highway at level 0 we cannot generate bridge parts. If there

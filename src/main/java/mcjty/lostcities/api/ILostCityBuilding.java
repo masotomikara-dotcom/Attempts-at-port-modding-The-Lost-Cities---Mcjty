@@ -13,7 +13,6 @@ public interface ILostCityBuilding extends ILostCityAsset {
      * The chance this this building is alone. If 1.0f this building wants to be alone all the time. If 0.0f (default)
      * then the building does not care.
      */
-import mcjty.lostcities.LostCities;
     float getPrefersLonely();
 
     /**

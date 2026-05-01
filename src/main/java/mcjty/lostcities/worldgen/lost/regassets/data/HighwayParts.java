@@ -13,7 +13,6 @@ public record HighwayParts(List<String> tunnel, List<String> open, List<String> 
             Tools.listOrStringList("tunnel", "highway_tunnel", HighwayParts::tunnel),
             Tools.listOrStringList("open", "highway_open", HighwayParts::open),
             Tools.listOrStringList("bridge", "highway_bridge", HighwayParts::bridge),
-import mcjty.lostcities.LostCities;
             Tools.listOrStringList("tunnel_bi", "highway_tunnel_bi", HighwayParts::tunnelBi),
             Tools.listOrStringList("open_bi", "highway_open_bi", HighwayParts::openBi),
             Tools.listOrStringList("bridge_bi", "highway_bridge_bi", HighwayParts::bridgeBi))

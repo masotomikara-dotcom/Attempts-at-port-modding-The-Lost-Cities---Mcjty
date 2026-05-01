@@ -13,7 +13,6 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
 import java.util.List;
-import mcjty.lostcities.LostCities;
 import java.util.Random;
 
 public class DamageArea {

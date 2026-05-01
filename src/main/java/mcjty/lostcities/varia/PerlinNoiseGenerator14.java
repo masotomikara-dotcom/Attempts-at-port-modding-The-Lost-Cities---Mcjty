@@ -13,7 +13,6 @@ public class PerlinNoiseGenerator14 {
       this.noiseLevels = new SimplexNoise[levelsIn];
 
       for(int i = 0; i < levelsIn; ++i) {
-import mcjty.lostcities.LostCities;
          this.noiseLevels[i] = new SimplexNoise(new LegacyRandomSource(seed));
       }
 

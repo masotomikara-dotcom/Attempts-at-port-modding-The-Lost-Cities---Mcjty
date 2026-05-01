@@ -13,7 +13,6 @@ public class ChunkFixer {
 
 
     private static void executePostTodo(ChunkCoord coord, IDimensionInfo provider) {
-import mcjty.lostcities.LostCities;
         BuildingInfo info = BuildingInfo.getBuildingInfo(coord, provider);
         info.getPostTodo().forEach((pos, runnable) -> runnable.run());
         info.clearPostTodo();

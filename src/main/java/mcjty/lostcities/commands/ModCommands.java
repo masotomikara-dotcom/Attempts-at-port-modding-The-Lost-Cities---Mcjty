@@ -3,7 +3,6 @@ package mcjty.lostcities.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.worldgen.lost.cityassets.AssetRegistries;
 import mcjty.lostcities.worldgen.lost.cityassets.Building;
 import mcjty.lostcities.worldgen.lost.cityassets.BuildingPart;
@@ -13,7 +12,6 @@ import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.server.commands.ResetChunksCommand;
 
 import javax.annotation.Nonnull;
-import mcjty.lostcities.LostCities;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 

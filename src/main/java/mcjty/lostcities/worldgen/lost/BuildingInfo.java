@@ -1,6 +1,5 @@
 package mcjty.lostcities.worldgen.lost;
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.*;
 import mcjty.lostcities.config.LostCityProfile;
 import mcjty.lostcities.setup.Config;
@@ -13,7 +12,6 @@ import mcjty.lostcities.worldgen.IDimensionInfo;
 import mcjty.lostcities.worldgen.LostCityTerrainFeature;
 import mcjty.lostcities.worldgen.lost.cityassets.*;
 import mcjty.lostcities.worldgen.lost.regassets.data.CitySphereSettings;
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.worldgen.lost.regassets.data.PredefinedBuilding;
 import mcjty.lostcities.worldgen.lost.regassets.data.PredefinedStreet;
 import mcjty.lostcities.worldgen.lost.regassets.data.WorldSettings;

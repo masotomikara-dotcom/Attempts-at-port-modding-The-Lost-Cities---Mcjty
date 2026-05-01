@@ -13,7 +13,6 @@ public class CitySphereSettings {
                     Codec.STRING.optionalFieldOf("centertype").forGetter(CitySphereSettings::getOptionalCentertype),
                     Codec.STRING.optionalFieldOf("centerpartorigin").forGetter(CitySphereSettings::getOptionalCentertype),
                     Codec.INT.optionalFieldOf("centerpartoffset").forGetter(l -> l.centerpartOffset == 0 ? Optional.empty() : Optional.of(l.centerpartOffset))
-import mcjty.lostcities.LostCities;
             ).apply(instance, CitySphereSettings::new));
 
     private final String centerpart;

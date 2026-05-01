@@ -13,7 +13,6 @@ public enum LandscapeType {
 
 
     private final String name;
-import mcjty.lostcities.LostCities;
 
     private static final Map<String, LandscapeType> NAME_TO_TYPE = new HashMap<>();
 

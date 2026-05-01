@@ -13,7 +13,6 @@ import mcjty.lostcities.worldgen.lost.cityassets.CityStyle;
 import mcjty.lostcities.worldgen.lost.cityassets.MultiBuilding;
 import mcjty.lostcities.worldgen.lost.regassets.data.MultiSettings;
 import org.jetbrains.annotations.NotNull;
-import mcjty.lostcities.LostCities;
 
 import java.util.*;
 

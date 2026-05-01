@@ -13,7 +13,6 @@ public class CityStyleRE implements IAsset<CityStyleRE> {
 
     public static final Codec<CityStyleRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-import mcjty.lostcities.LostCities;
                     Codec.FLOAT.optionalFieldOf("explosionchance").forGetter(l -> Optional.ofNullable(l.explosionChance)),
                     Codec.STRING.optionalFieldOf("style").forGetter(l -> Optional.ofNullable(l.style)),
                     Codec.STRING.optionalFieldOf("inherit").forGetter(l -> Optional.ofNullable(l.inherit)),

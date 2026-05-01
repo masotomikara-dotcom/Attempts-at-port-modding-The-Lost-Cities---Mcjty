@@ -1,6 +1,5 @@
 package mcjty.lostcities.worldgen;
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.LostChunkCharacteristics;
 import mcjty.lostcities.varia.ChunkCoord;
 import mcjty.lostcities.worldgen.lost.BuildingInfo;
@@ -13,7 +12,6 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
-import mcjty.lostcities.LostCities;
 import java.util.Map;
 import java.util.UUID;
 

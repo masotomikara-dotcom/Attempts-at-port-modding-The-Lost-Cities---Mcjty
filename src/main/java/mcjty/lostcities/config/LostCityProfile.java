@@ -3,7 +3,6 @@ package mcjty.lostcities.config;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.ILostCityProfile;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LostCityProfile implements ILostCityProfile {
-import mcjty.lostcities.LostCities;
 
     public static final String CATEGORY_LOSTCITY = "lostcity";
     public static final String CATEGORY_EXPLOSIONS = "explosions";

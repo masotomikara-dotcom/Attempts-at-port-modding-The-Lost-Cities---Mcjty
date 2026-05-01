@@ -13,7 +13,6 @@ public enum Orientation {
     }
 
     public Orientation getOpposite() {
-import mcjty.lostcities.LostCities;
         return this == X ? Z : X;
     }
 }

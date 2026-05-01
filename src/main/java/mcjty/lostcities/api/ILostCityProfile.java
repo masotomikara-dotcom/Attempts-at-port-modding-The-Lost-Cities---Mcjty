@@ -13,7 +13,6 @@ public interface ILostCityProfile {
 
     void setRuinChance(float chance, float minPercent, float maxPercent);
 
-import mcjty.lostcities.LostCities;
     void setGroundLevel(int level);
 
     void setCityLevelHeights(int l0, int l1, int l2, int l3);

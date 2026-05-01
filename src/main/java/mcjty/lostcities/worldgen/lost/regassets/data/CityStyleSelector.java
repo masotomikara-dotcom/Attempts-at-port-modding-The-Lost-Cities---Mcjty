@@ -13,7 +13,6 @@ public record CityStyleSelector(float factor, String citystyle, BiomeMatcher bio
     public static final Codec<CityStyleSelector> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.FLOAT.fieldOf("factor").forGetter(CityStyleSelector::factor),
-import mcjty.lostcities.LostCities;
                     Codec.STRING.fieldOf("citystyle").forGetter(CityStyleSelector::citystyle),
                     BiomeMatcher.CODEC.optionalFieldOf("biomes").forGetter(l -> Optional.ofNullable(l.biomeMatcher))
             ).apply(instance, (factor, citystyle, biomes) -> new CityStyleSelector(factor, citystyle, biomes.orElse(null))));

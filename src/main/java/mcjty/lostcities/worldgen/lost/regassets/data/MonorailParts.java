@@ -13,7 +13,6 @@ public record MonorailParts(String both, String vertical, String station) {
                     Codec.STRING.optionalFieldOf("vertical", "monorails_vertical").forGetter(MonorailParts::vertical),
                     Codec.STRING.optionalFieldOf("station", "monorails_station").forGetter(MonorailParts::station)
             ).apply(instance, MonorailParts::new));
-import mcjty.lostcities.LostCities;
 
     public static final MonorailParts DEFAULT = new MonorailParts("monorails_both", "monorails_vertical", "monorails_station");
 

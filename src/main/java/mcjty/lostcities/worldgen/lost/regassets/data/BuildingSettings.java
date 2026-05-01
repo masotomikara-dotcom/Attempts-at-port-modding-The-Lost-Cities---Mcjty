@@ -13,7 +13,6 @@ public class BuildingSettings {
     private final Integer minCellarCount;
     private final Integer maxFloorCount;
     private final Integer maxCellarCount;
-import mcjty.lostcities.LostCities;
     private final Float buildingChance;   // Optional build chance override
 
     public static final Codec<BuildingSettings> CODEC = RecordCodecBuilder.create(instance ->

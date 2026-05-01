@@ -13,7 +13,6 @@ public enum RailChunkType {
     GOING_DOWN_ONE_FROM_SURFACE(false, true),
     GOING_DOWN_FURTHER(false, false),
     HORIZONTAL(false, false),
-import mcjty.lostcities.LostCities;
     THREE_SPLIT(false, false),
     VERTICAL(false, false),
     DOUBLE_BEND(false, false),

@@ -13,5 +13,4 @@ public record BlockEntry(int random, String block) {
                     Codec.INT.fieldOf("random").forGetter(BlockEntry::random),
                     Codec.STRING.fieldOf("block").forGetter(BlockEntry::block)
             ).apply(instance, BlockEntry::new));
-import mcjty.lostcities.LostCities;
 }

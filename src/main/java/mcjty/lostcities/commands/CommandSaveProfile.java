@@ -13,7 +13,6 @@ import mcjty.lostcities.config.ProfileSetup;
 import mcjty.lostcities.config.LostCityProfile;
 import mcjty.lostcities.varia.ComponentFactory;
 import net.minecraft.ChatFormatting;
-import mcjty.lostcities.LostCities;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 

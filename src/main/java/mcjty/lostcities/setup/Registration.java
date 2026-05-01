@@ -1,7 +1,6 @@
 package mcjty.lostcities.setup;
 
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.worldgen.LostCityFeature;
 import mcjty.lostcities.worldgen.LostCitySphereFeature;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import dev.architectury.utils.Env;
 import net.minecraftforge.registries.DeferredRegister;
-import mcjty.lostcities.LostCities;
 import net.minecraftforge.registries.RegistryObject;
 
 public class Registration {

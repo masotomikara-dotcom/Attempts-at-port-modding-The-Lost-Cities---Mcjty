@@ -13,7 +13,6 @@ public interface ILostCitiesPre {
      * Register code that will be executed when Lost Cities is ready to register profiles.
      * In this callback you can be sure that all standard profiles are initialized and
      * it gives you a chance to register your own profiles
-import mcjty.lostcities.LostCities;
      */
     void registerProfileSetupCallback(Consumer<ILostCityProfileSetup> runnable);
 }

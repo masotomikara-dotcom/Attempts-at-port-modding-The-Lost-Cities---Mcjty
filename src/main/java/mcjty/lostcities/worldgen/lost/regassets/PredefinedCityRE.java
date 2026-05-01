@@ -13,7 +13,6 @@ import java.util.Optional;
 public class PredefinedCityRE implements IAsset<PredefinedCityRE> {
 
     public static final Codec<PredefinedCityRE> CODEC = RecordCodecBuilder.create(instance ->
-import mcjty.lostcities.LostCities;
             instance.group(
                     Codec.STRING.fieldOf("dimension").forGetter(l -> l.dimension),
                     Codec.INT.fieldOf("chunkx").forGetter(l -> l.chunkX),

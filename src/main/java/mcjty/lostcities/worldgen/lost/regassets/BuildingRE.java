@@ -13,7 +13,6 @@ public class BuildingRE implements IAsset<BuildingRE> {
 
     public static final Codec<BuildingRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-import mcjty.lostcities.LostCities;
                     Codec.STRING.optionalFieldOf("refpalette").forGetter(l -> Optional.ofNullable(l.refPaletteName)),
                     PaletteRE.CODEC.optionalFieldOf("palette").forGetter(l -> Optional.ofNullable(l.localPalette)),
                     Codec.STRING.fieldOf("filler").forGetter(l -> Character.toString(l.fillerBlock)),

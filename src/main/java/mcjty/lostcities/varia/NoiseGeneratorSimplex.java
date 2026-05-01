@@ -13,7 +13,6 @@ public class NoiseGeneratorSimplex {
     private static final double G2 = (3.0D - SQRT_3) / 6.0D;
 
     public NoiseGeneratorSimplex(RandomSource seed) {
-import mcjty.lostcities.LostCities;
         this.p = new int[512];
         this.xo = seed.nextDouble() * 256.0D;
         this.yo = seed.nextDouble() * 256.0D;

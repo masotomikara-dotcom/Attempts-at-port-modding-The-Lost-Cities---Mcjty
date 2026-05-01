@@ -13,7 +13,6 @@ import java.util.List;
  * A palette of materials as used by building parts
  */
 public class PaletteRE implements IAsset<PaletteRE> {
-import mcjty.lostcities.LostCities;
 
     public static final Codec<PaletteRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

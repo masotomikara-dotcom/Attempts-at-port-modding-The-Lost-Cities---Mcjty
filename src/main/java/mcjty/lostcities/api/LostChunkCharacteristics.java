@@ -13,5 +13,4 @@ public class LostChunkCharacteristics {
     public ILostCityMultiBuilding multiBuilding;
     public ResourceLocation buildingTypeId;
     public ILostCityBuilding buildingType;
-import mcjty.lostcities.LostCities;
 }

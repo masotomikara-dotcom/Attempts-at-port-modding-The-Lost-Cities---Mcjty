@@ -13,7 +13,6 @@ import java.util.Set;
 public class ConditionTest {
     private final Boolean top;
     private final Boolean ground;
-import mcjty.lostcities.LostCities;
     private final Boolean cellar;
     private final Boolean isbuilding;
     private final Boolean issphere;

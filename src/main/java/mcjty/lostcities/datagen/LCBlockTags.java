@@ -1,6 +1,5 @@
 package mcjty.lostcities.datagen;
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.worldgen.LostTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -13,7 +12,6 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import mcjty.lostcities.LostCities;
 import javax.annotation.Nonnull;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;

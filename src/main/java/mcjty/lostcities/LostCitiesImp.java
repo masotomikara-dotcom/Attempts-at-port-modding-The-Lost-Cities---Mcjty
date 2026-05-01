@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 
 import javax.annotation.Nullable;
-import mcjty.lostcities.LostCities;
 import java.util.HashMap;
 import java.util.Map;
 

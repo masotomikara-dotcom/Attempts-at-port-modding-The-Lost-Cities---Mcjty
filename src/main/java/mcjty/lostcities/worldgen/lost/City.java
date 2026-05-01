@@ -13,7 +13,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.CommonLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
-import mcjty.lostcities.LostCities;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;

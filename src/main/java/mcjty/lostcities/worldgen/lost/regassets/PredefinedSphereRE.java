@@ -13,7 +13,6 @@ public class PredefinedSphereRE implements IAsset<PredefinedSphereRE> {
                     Codec.INT.fieldOf("chunkx").forGetter(l -> l.chunkX),
                     Codec.INT.fieldOf("chunkz").forGetter(l -> l.chunkZ),
                     Codec.INT.fieldOf("centerx").forGetter(l -> l.centerX),
-import mcjty.lostcities.LostCities;
                     Codec.INT.fieldOf("centerz").forGetter(l -> l.centerZ),
                     Codec.INT.fieldOf("radius").forGetter(l -> l.radius)
             ).apply(instance, PredefinedSphereRE::new));

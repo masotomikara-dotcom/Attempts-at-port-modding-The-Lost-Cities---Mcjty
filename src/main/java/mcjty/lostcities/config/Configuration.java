@@ -13,7 +13,6 @@ import java.util.*;
 public class Configuration {
 
     public static class Value<T> {
-import mcjty.lostcities.LostCities;
         private final Component comment;
         private T value;
         private final T min;

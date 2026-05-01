@@ -13,7 +13,6 @@ public class LostCityProfileSetupImp implements ILostCityProfileSetup {
         }
         LostCityProfile profile = new LostCityProfile(name, true);
         profile.copyFrom(lcp);
-import mcjty.lostcities.LostCities;
         ProfileSetup.STANDARD_PROFILES.put(profile.getName(), profile);
         return profile;
     }

@@ -13,7 +13,6 @@ public class GuiElement {
         this.page = page;
         this.x = x;
         this.y = y;
-import mcjty.lostcities.LostCities;
     }
 
     public void tick() {

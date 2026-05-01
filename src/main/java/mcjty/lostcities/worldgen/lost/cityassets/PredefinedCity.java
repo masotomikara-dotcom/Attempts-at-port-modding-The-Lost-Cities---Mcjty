@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 import java.util.List;
-import mcjty.lostcities.LostCities;
 
 public class PredefinedCity implements ILostCityAsset {
 

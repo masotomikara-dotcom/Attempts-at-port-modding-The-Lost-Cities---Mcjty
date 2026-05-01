@@ -13,7 +13,6 @@ public class ConditionRE implements IAsset<ConditionRE> {
     public static final Codec<ConditionRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.list(ConditionPart.CODEC).fieldOf("values").forGetter(l -> l.values)
-import mcjty.lostcities.LostCities;
             ).apply(instance, ConditionRE::new));
 
     private ResourceLocation name;

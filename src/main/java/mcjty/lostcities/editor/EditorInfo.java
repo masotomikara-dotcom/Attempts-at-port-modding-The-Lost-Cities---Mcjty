@@ -13,7 +13,6 @@ import java.util.UUID;
  */
 public class EditorInfo {
     private final String partName;
-import mcjty.lostcities.LostCities;
     private final BlockPos bottomLocation;
     private final Map<BlockState, Character> reversedPalette = new HashMap<>();
 

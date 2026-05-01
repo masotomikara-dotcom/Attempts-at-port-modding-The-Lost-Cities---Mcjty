@@ -13,7 +13,6 @@ public class MultiBuildingRE implements IAsset<MultiBuildingRE> {
             instance.group(
                     Codec.INT.fieldOf("dimx").forGetter(l -> l.dimX),
                     Codec.INT.fieldOf("dimz").forGetter(l -> l.dimZ),
-import mcjty.lostcities.LostCities;
                     Codec.list(Codec.list(Codec.STRING)).fieldOf("buildings").forGetter(l -> l.buildings)
             ).apply(instance, MultiBuildingRE::new));
 

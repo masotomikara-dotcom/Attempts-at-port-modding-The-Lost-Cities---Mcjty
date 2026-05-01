@@ -13,7 +13,6 @@ import java.util.Optional;
 /**
  * An entry in a palette
  */
-import mcjty.lostcities.LostCities;
 public class PaletteEntry {
 
     public static final Codec<PaletteEntry> CODEC = RecordCodecBuilder.create(instance ->

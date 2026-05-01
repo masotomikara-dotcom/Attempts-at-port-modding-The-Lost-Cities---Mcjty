@@ -13,7 +13,6 @@ public interface ILostSphere {
 
     // The radius
     float getRadius();
-import mcjty.lostcities.LostCities;
 
     // Return true if this sphere is enabled. Always test for this
     boolean isEnabled();

@@ -13,7 +13,6 @@ public class TimedCache<K, V> {
         private long lastAccess;
 
         private Entry(V value, long lastAccess) {
-import mcjty.lostcities.LostCities;
             this.value = value;
             this.lastAccess = lastAccess;
         }

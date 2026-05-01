@@ -13,7 +13,6 @@ public enum Transform {
 
     private final net.minecraft.world.level.block.Rotation mcRotation;
 
-import mcjty.lostcities.LostCities;
     Transform(net.minecraft.world.level.block.Rotation mcRotation) {
         this.mcRotation = mcRotation;
     }

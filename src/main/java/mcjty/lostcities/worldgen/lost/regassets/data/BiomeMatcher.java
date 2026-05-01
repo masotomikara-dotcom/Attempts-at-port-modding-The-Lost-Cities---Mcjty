@@ -13,7 +13,6 @@ import java.util.function.Predicate;
 /**
  * Biome matcher kindly donated by Tslat (from https://github.com/Tslat/Advent-Of-Ascension/blob/1.19/source/content/world/gen/BiomeMatcher.java)
  */
-import mcjty.lostcities.LostCities;
 public class BiomeMatcher implements Predicate<Holder<Biome>> {
 	private final Optional<List<HolderSet<Biome>>> ifAll;
 	private final Optional<List<HolderSet<Biome>>> ifAny;

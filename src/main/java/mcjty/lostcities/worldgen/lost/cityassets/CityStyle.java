@@ -13,7 +13,6 @@ import net.minecraft.world.level.CommonLevelAccessor;
 import java.util.*;
 
 public class CityStyle implements ILostCityCityStyle {
-import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
 

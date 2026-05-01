@@ -13,7 +13,6 @@ public class SphereSettings {
     private final Character sphereSideBlock;      // Used for 'space' landscape type
     private final Character sphereGlassBlock;     // Used for 'space' landscape type
 
-import mcjty.lostcities.LostCities;
     public static final Codec<SphereSettings> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.STRING.optionalFieldOf("inner").forGetter(l -> DataTools.toNullable(l.sphereBlock)),

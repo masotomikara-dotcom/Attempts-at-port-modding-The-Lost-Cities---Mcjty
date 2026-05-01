@@ -13,7 +13,6 @@ public class HeightGenOpt {
     public static int getBaseHeight(NoiseBasedChunkGenerator generator, int x, int z, WorldGenLevel level, RandomState rnd) {
         return iterateNoiseColumn(generator.generatorSettings().get(), level, rnd, x, z).orElse(level.getMinBuildHeight());
     }
-import mcjty.lostcities.LostCities;
 
     private static OptionalInt iterateNoiseColumn(NoiseGeneratorSettings noise, WorldGenLevel pLevel, RandomState pRandom, int pX, int pZ) {
         NoiseSettings settings = noise.noiseSettings().clampToHeightAccessor(pLevel);

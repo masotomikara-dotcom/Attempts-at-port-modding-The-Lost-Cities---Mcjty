@@ -13,7 +13,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import mcjty.lostcities.LostCities;
 import net.minecraft.world.level.WorldGenLevel;
 
 public class CommandStats implements Command<CommandSourceStack> {

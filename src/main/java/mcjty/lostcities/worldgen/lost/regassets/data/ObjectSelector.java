@@ -13,7 +13,6 @@ public record ObjectSelector(float factor, String value, int minSpawnDistance, i
                     Codec.FLOAT.fieldOf("factor").forGetter(ObjectSelector::factor),
                     Codec.STRING.fieldOf("value").forGetter(ObjectSelector::value),
                     Codec.INT.optionalFieldOf("minSpawnDistance", 0).forGetter(v -> 0),
-import mcjty.lostcities.LostCities;
                     Codec.INT.optionalFieldOf("maxSpawnDistance", Integer.MAX_VALUE).forGetter(v -> Integer.MAX_VALUE),
                     Codec.INT.optionalFieldOf("feather", 0).forGetter(v -> 0)
             ).apply(instance, ObjectSelector::new));

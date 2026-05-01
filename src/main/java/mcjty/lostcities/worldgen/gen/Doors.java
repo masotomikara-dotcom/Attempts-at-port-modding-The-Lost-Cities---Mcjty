@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 public class Doors
-import mcjty.lostcities.LostCities;
 {
     private static BlockState getDoor(Block door, boolean upper, boolean left, net.minecraft.core.Direction facing) {
         return door.defaultBlockState()

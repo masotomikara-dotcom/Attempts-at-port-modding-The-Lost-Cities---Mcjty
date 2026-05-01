@@ -13,7 +13,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import mcjty.lostcities.LostCities;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 

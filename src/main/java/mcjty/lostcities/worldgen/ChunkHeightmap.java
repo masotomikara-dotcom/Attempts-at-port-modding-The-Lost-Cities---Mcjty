@@ -13,7 +13,6 @@ import net.minecraft.world.level.levelgen.RandomState;
  * A heightmap for a chunk
  */
 public class ChunkHeightmap {
-import mcjty.lostcities.LostCities;
     private int height;
     private final LandscapeType type;
     private final int groundLevel;

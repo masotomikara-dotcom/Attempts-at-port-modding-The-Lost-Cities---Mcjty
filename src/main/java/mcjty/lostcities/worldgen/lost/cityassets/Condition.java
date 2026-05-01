@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Condition implements ILostCityAsset {
-import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
 

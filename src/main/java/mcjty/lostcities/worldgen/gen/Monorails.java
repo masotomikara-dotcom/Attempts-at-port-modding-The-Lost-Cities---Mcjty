@@ -13,7 +13,6 @@ import mcjty.lostcities.worldgen.lost.regassets.data.MonorailParts;
 public class Monorails {
 
     public static void generateMonorails(LostCityTerrainFeature feature, BuildingInfo info) {
-import mcjty.lostcities.LostCities;
         LostCityProfile profile = info.profile;
         IDimensionInfo provider = info.provider;
         MonorailParts monoRailParts = provider.getWorldStyle().getPartSelector().monoRailParts();

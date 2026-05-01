@@ -13,7 +13,6 @@ import java.util.Optional;
 public class ConditionPart extends ConditionTest {
 
     public static final Codec<ConditionPart> CODEC = RecordCodecBuilder.create(instance ->
-import mcjty.lostcities.LostCities;
             instance.group(
                     Codec.FLOAT.fieldOf("factor").forGetter(ConditionPart::getFactor),
                     Codec.STRING.fieldOf("value").forGetter(ConditionPart::getValue),

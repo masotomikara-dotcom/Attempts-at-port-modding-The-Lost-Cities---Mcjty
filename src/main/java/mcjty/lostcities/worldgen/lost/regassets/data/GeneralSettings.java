@@ -13,7 +13,6 @@ public class GeneralSettings {
     private final Character glowstoneBlock;
     private final Character leavesBlock;
     private final Character rubbleDirtBlock;
-import mcjty.lostcities.LostCities;
 
     public static final Codec<GeneralSettings> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

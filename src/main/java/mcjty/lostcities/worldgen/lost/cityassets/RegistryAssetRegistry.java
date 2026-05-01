@@ -1,6 +1,5 @@
 package mcjty.lostcities.worldgen.lost.cityassets;
 
-import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.ILostCityAsset;
 import mcjty.lostcities.api.ILostCityAssetRegistry;
 import mcjty.lostcities.worldgen.lost.regassets.IAsset;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.CommonLevelAccessor;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.HashMap;
-import mcjty.lostcities.LostCities;
 import java.util.Map;
 import java.util.function.Function;
 

@@ -13,7 +13,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class Highways {
-import mcjty.lostcities.LostCities;
     public static void generateHighways(LostCityTerrainFeature feature, BuildingInfo info) {
         int levelX = Highway.getXHighwayLevel(info.coord, info.provider, info.profile);
         int levelZ = Highway.getZHighwayLevel(info.coord, info.provider, info.profile);

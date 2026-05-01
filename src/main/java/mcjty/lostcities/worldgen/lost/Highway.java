@@ -13,7 +13,6 @@ public class Highway {
 
     private static PerlinNoiseGenerator14 perlinX = null;
     private static PerlinNoiseGenerator14 perlinZ = null;
-import mcjty.lostcities.LostCities;
     private static final Map<ChunkCoord, Integer> X_HIGHWAY_LEVEL_CACHE = new HashMap<>();
     private static final Map<ChunkCoord, Integer> Z_HIGHWAY_LEVEL_CACHE = new HashMap<>();
 

@@ -1,6 +1,5 @@
 package mcjty.lostcities.worldgen.lost.regassets.data;
 
-import mcjty.lostcities.LostCities;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Optional;
@@ -13,7 +12,6 @@ public class DataTools {
         } else {
             return Optional.of(Character.toString(c));
         }
-import mcjty.lostcities.LostCities;
     }
 
     public static Character getNullableChar(Optional<String> opt) {

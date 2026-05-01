@@ -13,7 +13,6 @@ import mcjty.lostcities.worldgen.lost.cityassets.AssetRegistries;
 import mcjty.lostcities.worldgen.lost.cityassets.BuildingPart;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
-import mcjty.lostcities.LostCities;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;

@@ -13,7 +13,6 @@ public class PredefinedSphere implements ILostCityAsset {
 
     private final ResourceLocation name;
     private final ResourceKey<Level> dimension;
-import mcjty.lostcities.LostCities;
     private final int chunkX;
     private final int chunkZ;
     private final int centerX;

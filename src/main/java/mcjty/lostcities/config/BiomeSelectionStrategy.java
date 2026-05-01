@@ -13,7 +13,6 @@ public enum BiomeSelectionStrategy {
     private static final Map<String, BiomeSelectionStrategy> NAME_TO_TYPE = new HashMap<>();
 
     static {
-import mcjty.lostcities.LostCities;
         for (BiomeSelectionStrategy type : BiomeSelectionStrategy.values()) {
             NAME_TO_TYPE.put(type.getName(), type);
         }

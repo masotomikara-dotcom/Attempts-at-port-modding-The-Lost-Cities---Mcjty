@@ -13,7 +13,6 @@ public class VariantRE implements IAsset<VariantRE> {
 
     public static final Codec<VariantRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-import mcjty.lostcities.LostCities;
                     Codec.list(BlockEntry.CODEC).fieldOf("blocks").forGetter(l -> l.blocks)
             ).apply(instance, VariantRE::new));
 

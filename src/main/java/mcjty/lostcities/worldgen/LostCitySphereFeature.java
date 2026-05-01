@@ -13,7 +13,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraftforge.common.Tags;
 
 public class LostCitySphereFeature extends Feature<NoneFeatureConfiguration> {
-import mcjty.lostcities.LostCities;
 
     public LostCitySphereFeature() {
         super(NoneFeatureConfiguration.CODEC);
