@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 public class Tools {
     public static <T> T getRandomFromList(Random random, List<T> list, Function<T, Float> weightGetter) {
-        if (list.isEmpty()) return null;
+        if (list == null || list.isEmpty()) return null;
         float totalWeight = 0;
         for (T item : list) totalWeight += weightGetter.apply(item);
         float r = random.nextFloat() * totalWeight;
@@ -14,5 +14,8 @@ public class Tools {
             if (r <= 0) return item;
         }
         return list.get(0);
+    }
+    public static <T> T choose(Random random, List<T> list, Function<T, Float> weightGetter) {
+        return getRandomFromList(random, list, weightGetter);
     }
 }
