@@ -474,21 +474,4 @@ public class ProfileSetup {
         LostCities.LOGGER.info("Reading existing profiles from 'config/lostcities/profiles'");
         readProfiles(profileDir);
     }
-
-    private static void readProfiles(Path profileDir) {
-        File[] files = new File(profileDir.toString()).listFiles((dir, name) -> name.endsWith(".json"));
-        for (File file : files) {
-            String name = file.getName();
-            try {
-                String json = FileUtils.readFileToString(file, "UTF-8");
-                String[] split = name.split("\\.");
-                LostCityProfile profile = new LostCityProfile(split[0], json);
-                STANDARD_PROFILES.put(split[0], profile);
-            } catch (IOException e) {
-                LostCities.LOGGER.error("Couldn't read profile '{}'!", name);
-                return;
-            }
-        }
-
-    }
 }
