@@ -437,13 +437,7 @@ public class ProfileSetup {
         profile.CITY_STYLE_ALTERNATIVE = "citystyle_border";
         profile.GENERATE_LIGHTING = true;
         profile.BUILDING_MAXFLOORS = 9;
-        profile.BUILDING_MAXFLOORS_CHANCE = 7;
-        profile.BUILDING_CHANCE = .4f;
-        STANDARD_PROFILES.put(profile.getName(), profile);
-    }
-
-            public static void setupProfiles() {
-    {
+    public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }
