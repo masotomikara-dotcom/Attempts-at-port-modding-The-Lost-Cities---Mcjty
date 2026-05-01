@@ -72,6 +72,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
+    maven { url "https://maven.blamejared.com/" }
     maven { url "https://www.cursemaven.com" }
 }
 
@@ -89,7 +90,8 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
-    modImplementation "curse.maven:mcjtylib-233105:4615378"
+    modImplementation "mcjty.theoneprobe:TheOneProbe-1.20:1.20.1-11.0.0"
+    modImplementation "mcjty.lib:mcjtylib-1.20:1.20.1-8.0.3"
 }
 
 tasks.withType(JavaCompile).configureEach {
