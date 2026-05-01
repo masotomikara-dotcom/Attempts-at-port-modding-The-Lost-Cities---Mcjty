@@ -3,17 +3,7 @@
 # 1. Upgrade Gradle
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
-# 2. Configure build files
-cat <<EOM > settings.gradle
-pluginManagement {
-    repositories {
-        maven { url "https://maven.fabricmc.net/" }
-        gradlePluginPortal()
-    }
-}
-rootProject.name = 'lostcities'
-EOM
-
+# 2. Configure build.gradle
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -41,21 +31,25 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# --- Patching Logic ---
+# --- Patching Phase ---
 
 # Remove incompatible Forge files
 rm -rf src/main/java/mcjty/lostcities/datagen
 rm -f src/main/java/mcjty/lostcities/setup/ForgeEventHandlers.java
 
-# Safe Import: Add Architectury imports AFTER the package declaration
-# We use a more robust way to avoid syntax errors
-find src -type f -name "*.java" -exec sed -i '/package /a import dev.architectury.registry.registries.DeferredRegister;\nimport dev.architectury.registry.registries.RegistrySupplier;' {} +
+# Add Missing Imports for Registry and Annotations
+find src -type f -name "*.java" -exec sed -i '/package /a import dev.architectury.registry.registries.DeferredRegister;\nimport dev.architectury.registry.registries.RegistrySupplier;\nimport org.jetbrains.annotations.NotNull;\nimport org.jetbrains.annotations.Nullable;' {} +
 
-# Fix Registry syntax: Ensure (MODID, Registry) order
+# Convert old Forge/JSR305 annotations to JetBrains
+find src -type f -name "*.java" -exec sed -i 's/@Nonnull/@NotNull/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/import javax.annotation.Nonnull;//g' {} +
+find src -type f -name "*.java" -exec sed -i 's/import javax.annotation.Nullable;//g' {} +
+
+# Fix Registry Syntax (MODID, Registry)
 find src -type f -name "*.java" -exec sed -i 's/DeferredRegister.create(Registries\.\([A-Z_]*\), LostCities.MODID)/DeferredRegister.create(LostCities.MODID, Registries.\1)/g' {} +
+find src -type f -name "*.java" -exec sed -i 's/RegistryObject/RegistrySupplier/g' {} +
 
-# Clean Forge-specific code
-find src -type f -name "*.java" -exec sed -i 's/@Mod(.*)//g' {} +
+# Clean up remaining Forge imports
 find src -type f -name "*.java" -exec sed -i 's/import net.minecraftforge.*//g' {} +
 
 # Metadata & Entrypoint
