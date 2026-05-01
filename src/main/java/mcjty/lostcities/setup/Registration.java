@@ -19,7 +19,7 @@ public class Registration {
 
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, LostCities.MODID);
 
-    public static void init(IEventBus bus) {
+    public static void init() {
         FEATURES.register(bus);
     }
 

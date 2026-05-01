@@ -51,7 +51,7 @@ public class CustomRegistries {
     public static final ResourceKey<Registry<StuffSettingsRE>> STUFF_REGISTRY_KEY = ResourceKey.createRegistryKey(new ResourceLocation(LostCities.MODID, "stuff"));
     public static final DeferredRegister<StuffSettingsRE> STUFF_DEFERRED_REGISTER = DeferredRegister.create(STUFF_REGISTRY_KEY, LostCities.MODID);
 
-    public static void init(IEventBus bus) {
+    public static void init() {
         BUILDING_DEFERRED_REGISTER.register(bus);
         PALETTE_DEFERRED_REGISTER.register(bus);
         PART_DEFERRED_REGISTER.register(bus);
