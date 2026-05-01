@@ -23,10 +23,6 @@ cat <<EOM > src/main/resources/fabric.mod.json
   "name": "LostCities",
   "description": "Generate cities all over the world",
   "authors": ["McJty"],
-  "contact": {
-    "homepage": "http://github.com/McJtyMods/LostCities/",
-    "issues": "http://github.com/McJtyMods/LostCities/issues"
-  },
   "license": "MIT",
   "environment": "*",
   "entrypoints": { "main": ["mcjty.lostcities.FabricEntrypoint"] },
@@ -59,7 +55,7 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 6. Build Configuration with Local Libs
+# 6. Build Configuration
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -86,7 +82,7 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
-implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -94,10 +90,11 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# 7. DOWNLOAD MCJTYLIB MANUALLY
+cat <<EOM > gradle.properties
+org.gradle.jvmargs=-Xmx2G
+org.gradle.parallel=true
+EOM
 mkdir -p libs
-curl -L -s -o libs/mcjtylib.jar https://mediafilez.forgecdn.net/files/4615/378/mcjtylib-1.20-8.0.3.jar
-
-# 8. FINAL BUILD
+curl -L -s -o libs/mcjtylib.jar "https://www.cursemaven.com/curse/maven/mcjtylib-233105/4615378/mcjtylib-233105-4615378.jar"
 chmod +x gradlew
-./gradlew clean build
+./gradlew clean build --stacktrace

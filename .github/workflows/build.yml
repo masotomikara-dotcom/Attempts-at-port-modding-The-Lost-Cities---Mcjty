@@ -17,10 +17,14 @@ jobs:
       - name: Execute Port Script
         run: |
           chmod +x ./port_to_fabric.sh
-          ./port_to_fabric.sh
+          ./port_to_fabric.sh 2>&1 | tee build_log.txt
 
-      - name: Upload Mod Jar
+      - name: Upload Artifacts (Mod & Log)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: LostCities-Fabric-Build
-          path: build/libs/*.jar
+          name: LostCities-Fabric-Output
+          path: |
+            build/libs/*.jar
+            build_log.txt
+
