@@ -182,7 +182,6 @@ public class ForgeEventHandlers {
                 } else {
                     final PredefinedSphere sphere = AssetRegistries.PREDEFINED_SPHERES.get(world, profile.SPAWN_SPHERE);
                     if (sphere == null) {
-                        LostCities.setup.getLogger().error("Cannot find sphere '" + profile.SPAWN_SPHERE + "' for the player to spawn in !");
                     } else {
                         float sqradius = getSqRadius(sphere.getRadius(), 0.8f);
                         isSuitable = blockPos -> sphere.getDimension() == serverLevel.dimension() &&
@@ -293,7 +292,6 @@ public class ForgeEventHandlers {
             }
             radius += provider.getProfile().SPAWN_RADIUS_INCREASE;
             if (attempts > provider.getProfile().SPAWN_CHECK_ATTEMPTS) {
-                LostCities.setup.getLogger().error("Can't find a valid spawn position!");
                 throw new RuntimeException("Can't find a valid spawn position!");
             }
         }

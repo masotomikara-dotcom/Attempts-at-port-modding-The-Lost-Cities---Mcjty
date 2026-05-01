@@ -9,6 +9,5 @@ public class LostCitiesPreImp implements ILostCitiesPre {
 
     @Override
     public void registerProfileSetupCallback(Consumer<ILostCityProfileSetup> runnable) {
-        LostCities.setup.profileSetups.add(runnable);
     }
 }

@@ -33,7 +33,7 @@ public class ErrorLogger {
     }
 
     public static void logChunkInfo(int chunkX, int chunkZ, IDimensionInfo provider) {
-        Logger logger = LostCities.getLogger();
+        Logger logger = LostCities.LOGGER;
         try {
             ChunkCoord coord = new ChunkCoord(provider.getType(), chunkX, chunkZ);
             logger.info("IsCity: " + BuildingInfo.isCityRaw(coord, provider, provider.getProfile()));

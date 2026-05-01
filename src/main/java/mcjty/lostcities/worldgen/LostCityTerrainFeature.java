@@ -2009,7 +2009,6 @@ public class LostCityTerrainFeature {
 //                ((LockableLootTileEntity) tileentity).setLootTable(new ResourceLocation(randomValue), random.nextLong());
 //                tileentity.markDirty();
 //                if (LostCityConfiguration.DEBUG) {
-//                    LostCities.setup.getLogger().debug("createLootChest: loot=" + randomValue + " pos=" + pos.toString());
 //                }
                 RandomizableContainerBlockEntity.setLootTable(world, random, pos, new ResourceLocation(randomValue));
             }

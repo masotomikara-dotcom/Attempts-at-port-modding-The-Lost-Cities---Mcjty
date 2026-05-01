@@ -446,11 +446,10 @@ public class ProfileSetup {
         Path path = FMLPaths.CONFIGDIR.get();
         Path profileDir = Paths.get(path.toString(), "lostcities/profiles");
 
-        LostCities.getLogger().info("Creating standard profiles into 'config/lostcities/profiles'");
+        LostCities.LOGGER.info("Creating standard profiles into 'config/lostcities/profiles'");
 
         initStandardProfiles();
         LostCityProfileSetupImp setupImp = new LostCityProfileSetupImp();
-        LostCities.setup.profileSetups.forEach(consumer -> {
             consumer.accept(setupImp);
         });
 
@@ -467,12 +466,12 @@ public class ProfileSetup {
                         writer.flush();
                     }
                 } catch (FileNotFoundException e) {
-                    LostCities.getLogger().error("Couldn't save profile '{}'!", name);
+                    LostCities.LOGGER.error("Couldn't save profile '{}'!", name);
                 }
             }
         }
 
-        LostCities.getLogger().info("Reading existing profiles from 'config/lostcities/profiles'");
+        LostCities.LOGGER.info("Reading existing profiles from 'config/lostcities/profiles'");
         readProfiles(profileDir);
     }
 
@@ -486,7 +485,7 @@ public class ProfileSetup {
                 LostCityProfile profile = new LostCityProfile(split[0], json);
                 STANDARD_PROFILES.put(split[0], profile);
             } catch (IOException e) {
-                LostCities.getLogger().error("Couldn't read profile '{}'!", name);
+                LostCities.LOGGER.error("Couldn't read profile '{}'!", name);
                 return;
             }
         }

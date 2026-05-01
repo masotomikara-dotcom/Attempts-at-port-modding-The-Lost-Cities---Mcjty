@@ -13,4 +13,3 @@ public class LostCities {
         Registration.init();
     }
 }
-
