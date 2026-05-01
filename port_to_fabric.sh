@@ -1,5 +1,8 @@
 #!/bin/bash
-# 1. Setup Gradle Environment
+# 1. Force Upgrade Gradle Wrapper Version
+sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
+
+# 2. Setup Gradle Environment
 cat <<EOM > settings.gradle
 pluginManagement {
     repositories {
@@ -10,7 +13,7 @@ pluginManagement {
 rootProject.name = 'lostcities'
 EOM
 
-# 2. Fabric Metadata
+# 3. Fabric Metadata
 mkdir -p src/main/resources
 cat <<EOM > src/main/resources/fabric.mod.json
 {
@@ -36,7 +39,10 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 3. Global Code Patching
+# 4. Clean up Forge remnants
+rm -rf src/main/resources/META-INF
+
+# 5. Global Code Patching
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
@@ -44,7 +50,19 @@ find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.javafmlmo
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.Dist/net.fabricmc.api.EnvType/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.api.distmarker.OnlyIn/net.fabricmc.api.Environment/g' {} +
 
-# 4. Build Configuration
+# 6. Create Entrypoint
+cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
+package mcjty.lostcities;
+import net.fabricmc.api.ModInitializer;
+public class FabricEntrypoint implements ModInitializer {
+    @Override
+    public void onInitialize() {
+        new LostCities();
+    }
+}
+EOM
+
+# 7. Build Configuration
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -84,9 +102,6 @@ org.gradle.jvmargs=-Xmx2G
 org.gradle.parallel=true
 EOM
 
-# 5. UPGRADE GRADLE FIRST
+# 8. FINAL BUILD
 chmod +x gradlew
-./gradlew wrapper --gradle-version 8.7
-
-# 6. FINAL BUILD
 ./gradlew clean build
