@@ -1,5 +1,7 @@
 package mcjty.lostcities.worldgen.lost.cityassets;
 import mcjty.lostcities.varia.Tools;
+import net.minecraft.world.level.block.state.BlockState;
+import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.varia.Tools;
 import mcjty.lostcities.varia.Tools;

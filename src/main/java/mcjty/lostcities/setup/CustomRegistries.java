@@ -51,19 +51,19 @@ public class CustomRegistries {
     public static final net.minecraftforge.registries.FabricDeferredRegister STUFF_DEFERRED_REGISTER = net.minecraftforge.registries.FabricDeferredRegister.create(null, "lostcities");
 
     public static void init() {
-        BUILDING_DEFERRED_REGISTER.register(bus);
-        PALETTE_DEFERRED_REGISTER.register(bus);
-        PART_DEFERRED_REGISTER.register(bus);
-        STYLE_DEFERRED_REGISTER.register(bus);
-        CONDITIONS_DEFERRED_REGISTER.register(bus);
-        CITYSTYLES_DEFERRED_REGISTER.register(bus);
-        MULTIBUILDINGS_DEFERRED_REGISTER.register(bus);
-        VARIANTS_DEFERRED_REGISTER.register(bus);
-        WORLDSTYLES_DEFERRED_REGISTER.register(bus);
-        PREDEFINEDCITIES_DEFERRED_REGISTER.register(bus);
-        PREDEFINEDSPHERES_DEFERRED_REGISTER.register(bus);
-        SCATTERED_DEFERRED_REGISTER.register(bus);
-        STUFF_DEFERRED_REGISTER.register(bus);
+//         BUILDING_DEFERRED_REGISTER.register(bus);
+//         PALETTE_DEFERRED_REGISTER.register(bus);
+//         PART_DEFERRED_REGISTER.register(bus);
+//         STYLE_DEFERRED_REGISTER.register(bus);
+//         CONDITIONS_DEFERRED_REGISTER.register(bus);
+//         CITYSTYLES_DEFERRED_REGISTER.register(bus);
+//         MULTIBUILDINGS_DEFERRED_REGISTER.register(bus);
+//         VARIANTS_DEFERRED_REGISTER.register(bus);
+//         WORLDSTYLES_DEFERRED_REGISTER.register(bus);
+//         PREDEFINEDCITIES_DEFERRED_REGISTER.register(bus);
+//         PREDEFINEDSPHERES_DEFERRED_REGISTER.register(bus);
+//         SCATTERED_DEFERRED_REGISTER.register(bus);
+//         STUFF_DEFERRED_REGISTER.register(bus);
     }
 
 }
