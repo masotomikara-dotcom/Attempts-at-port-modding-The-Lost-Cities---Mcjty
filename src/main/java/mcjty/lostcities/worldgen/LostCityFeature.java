@@ -4,7 +4,6 @@ import mcjty.lostcities.LostCities;
 import mcjty.lostcities.config.LostCityProfile;
 import mcjty.lostcities.config.ProfileSetup;
 import mcjty.lostcities.setup.Config;
-import mcjty.lostcities.setup.ForgeEventHandlers;
 import mcjty.lostcities.worldgen.lost.cityassets.AssetRegistries;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;

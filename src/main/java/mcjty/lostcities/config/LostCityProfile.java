@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.ILostCityProfile;
-import mcjty.lostcities.setup.ModSetup;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;

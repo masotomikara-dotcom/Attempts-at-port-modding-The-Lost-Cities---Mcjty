@@ -4,7 +4,6 @@ import mcjty.lostcities.setup.CustomRegistries;
 import mcjty.lostcities.worldgen.lost.regassets.*;
 import mcjty.lostcities.worldgen.lost.regassets.StuffSettingsRE;
 import net.minecraft.world.level.CommonLevelAccessor;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 import java.util.HashMap;

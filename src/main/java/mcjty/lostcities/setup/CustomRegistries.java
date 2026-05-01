@@ -67,19 +67,4 @@ public class CustomRegistries {
         STUFF_DEFERRED_REGISTER.register(bus);
     }
 
-    public static void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {
-        event.dataPackRegistry(BUILDING_REGISTRY_KEY, BuildingRE.CODEC);
-        event.dataPackRegistry(PALETTE_REGISTRY_KEY, PaletteRE.CODEC);
-        event.dataPackRegistry(PART_REGISTRY_KEY, BuildingPartRE.CODEC);
-        event.dataPackRegistry(STYLE_REGISTRY_KEY, StyleRE.CODEC);
-        event.dataPackRegistry(CONDITIONS_REGISTRY_KEY, ConditionRE.CODEC);
-        event.dataPackRegistry(CITYSTYLES_REGISTRY_KEY, CityStyleRE.CODEC);
-        event.dataPackRegistry(MULTIBUILDINGS_REGISTRY_KEY, MultiBuildingRE.CODEC);
-        event.dataPackRegistry(VARIANTS_REGISTRY_KEY, VariantRE.CODEC);
-        event.dataPackRegistry(WORLDSTYLES_REGISTRY_KEY, WorldStyleRE.CODEC);
-        event.dataPackRegistry(PREDEFINEDCITIES_REGISTRY_KEY, PredefinedCityRE.CODEC);
-        event.dataPackRegistry(PREDEFINEDSPHERES_REGISTRY_KEY, PredefinedSphereRE.CODEC);
-        event.dataPackRegistry(SCATTERED_REGISTRY_KEY, ScatteredRE.CODEC);
-        event.dataPackRegistry(STUFF_REGISTRY_KEY, StuffSettingsRE.CODEC);
-    }
 }

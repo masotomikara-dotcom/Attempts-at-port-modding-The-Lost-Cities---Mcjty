@@ -2,12 +2,10 @@ package mcjty.lostcities.worldgen;
 
 import mcjty.lostcities.LostCities;
 import mcjty.lostcities.api.ILostCities;
-import mcjty.lostcities.api.LostCityEvent;
 import mcjty.lostcities.api.RailChunkType;
 import mcjty.lostcities.config.LostCityProfile;
 import mcjty.lostcities.editor.EditModeData;
 import mcjty.lostcities.setup.Config;
-import mcjty.lostcities.setup.ModSetup;
 import mcjty.lostcities.varia.*;
 import mcjty.lostcities.worldgen.gen.*;
 import mcjty.lostcities.worldgen.lost.*;
