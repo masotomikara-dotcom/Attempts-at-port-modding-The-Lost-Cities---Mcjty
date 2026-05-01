@@ -58,7 +58,7 @@ public class RegistryAssetRegistry<T extends ILostCityAsset, R> implements ILost
         T rc = get(level, DataTools.fromName(name));
         if (rc == null) {
             // Warning
-            LostCities.LOGGER.warn("Cannot find '" + name + "' in " + registryKey.registry() + "!");
+            mcjty.lostcities.mcjty.lostcities.LostCities.LOGGER.warn("Cannot find '" + name + "' in " + registryKey.registry() + "!");
         }
         return rc;
     }

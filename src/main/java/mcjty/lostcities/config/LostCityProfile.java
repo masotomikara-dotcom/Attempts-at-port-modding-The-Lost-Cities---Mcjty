@@ -227,7 +227,7 @@ public class LostCityProfile implements ILostCityProfile {
         if (iconFile == null || iconFile.isEmpty()) {
             return null;
         }
-        icon = new ResourceLocation(LostCities.MODID, iconFile);
+        icon = new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, iconFile);
         return icon;
     }
 

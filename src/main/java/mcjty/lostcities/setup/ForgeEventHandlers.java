@@ -66,7 +66,7 @@ public class ForgeEventHandlers {
     public void onEntityConstructing(AttachCapabilitiesEvent<Entity> event){
         if (event.getObject() instanceof Player) {
             if (!event.getObject().getCapability(PlayerProperties.PLAYER_SPAWN_SET).isPresent()) {
-                event.addCapability(new ResourceLocation(LostCities.MODID, "spawnset"), new PropertiesDispatcher());
+                event.addCapability(new ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, "spawnset"), new PropertiesDispatcher());
             }
         }
     }

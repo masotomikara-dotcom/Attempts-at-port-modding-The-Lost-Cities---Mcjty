@@ -128,7 +128,7 @@ public class LostCitySetup {
         if (idx != -1) {
             path = path.substring(0, idx);
         }
-        if (!LostCities.MODID.equals(rl.getNamespace())) {
+        if (!mcjty.lostcities.mcjty.lostcities.LostCities.MODID.equals(rl.getNamespace())) {
             path = rl.getNamespace() + ":" + path;
         }
         return path;

@@ -142,7 +142,7 @@ public class CompiledPalette {
                 return randomBlocks[rand.nextInt(128)];
             }
         } catch (Exception e) {
-            LostCities.LOGGER.log(Level.ERROR, e);
+            mcjty.lostcities.mcjty.lostcities.LostCities.LOGGER.log(Level.ERROR, e);
             return null;
         }
 
