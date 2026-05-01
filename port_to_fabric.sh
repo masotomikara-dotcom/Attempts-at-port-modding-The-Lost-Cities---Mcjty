@@ -21,7 +21,6 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    maven { url "https://www.cursemaven.com" }
     maven { url "https://api.modrinth.com/maven" }
 }
 
@@ -32,8 +31,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // McJtyLib for 1.20.1 via CurseMaven (Project ID: 233105, File ID: 4615378)
-    modImplementation "curse.maven:mcjtylib-233105:4615378"
+    // Using Modrinth Maven with the correct slug and version ID for 1.20.1 Fabric
+    modImplementation "maven.modrinth:mcjtylib:v8.0.3"
 }
 
 tasks.withType(JavaCompile).configureEach {
