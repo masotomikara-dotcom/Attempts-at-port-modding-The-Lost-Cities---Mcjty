@@ -406,7 +406,7 @@ public class BuildingInfo implements ILostChunkInfo {
             }
         }
 
-        LostCityEvent.CharacteristicsEvent event = new LostCityEvent.CharacteristicsEvent(world, LostCities.lostCitiesImp,
+        LostCityEvent.CharacteristicsEvent event = new LostCityEvent.CharacteristicsEvent(world, mcjty.lostcities.mcjty.lostcities.LostCities.lostCitiesImp,
                 chunkX, chunkZ, characteristics);
         MinecraftForge.EVENT_BUS.post(event);
 

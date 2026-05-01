@@ -19,7 +19,7 @@ public class ModCommands {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         LiteralCommandNode<CommandSourceStack> commands = dispatcher.register(
-                Commands.literal(mcjty.lostcities.LostCities.MODID)
+                Commands.literal(mcjty.lostcities.mcjty.lostcities.LostCities.MODID)
                         .then(CommandCreateBuilding.register(dispatcher))
                         .then(CommandDebug.register(dispatcher))
                         .then(CommandStats.register(dispatcher))

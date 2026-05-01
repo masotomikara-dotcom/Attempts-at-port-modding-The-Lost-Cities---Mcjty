@@ -32,9 +32,9 @@ public class HeightGenOpt {
             int cellZ = cellPZ * cellWidth;
             double xFactor = (double)cellOX / (double)cellWidth;
             double zFactor = (double)cellOZ / (double)cellWidth;
-            NoiseChunkOpt.FluidStatusV def = new NoiseChunkOpt.FluidStatusV(noise.seaLevel(), noise.defaultFluid());
+            net.minecraft.world.level.levelgen.NoiseChunk.FluidStatusV def = new net.minecraft.world.level.levelgen.NoiseChunk.FluidStatusV(noise.seaLevel(), noise.defaultFluid());
 
-            NoiseChunkOpt chunk = new NoiseChunkOpt(1, pRandom, cellX, cellZ, settings, BeardifierMarker.INSTANCE, noise, def);
+            net.minecraft.world.level.levelgen.NoiseChunk chunk = new net.minecraft.world.level.levelgen.NoiseChunk(1, pRandom, cellX, cellZ, settings, BeardifierMarker.INSTANCE, noise, def);
             chunk.initializeForFirstCellX();
             chunk.advanceCellX(0);
 

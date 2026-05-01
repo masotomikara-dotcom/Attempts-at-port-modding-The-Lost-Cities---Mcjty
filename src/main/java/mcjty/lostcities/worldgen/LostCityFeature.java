@@ -77,7 +77,7 @@ public class LostCityFeature extends Feature<NoneFeatureConfiguration> {
             cleanUp();
         }
         ResourceKey<Level> type = world.getLevel().dimension();
-        String profileName = Config.getProfileForDimension(type);
+        String profileName = "default";
         if (profileName != null) {
             if (!dimensionInfo.containsKey(type)) {
                 LostCityProfile profile = ProfileSetup.STANDARD_PROFILES.get(profileName);
@@ -94,7 +94,7 @@ public class LostCityFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void cleanUp() {
-        LostCities.lostCitiesImp.cleanUp();
+        mcjty.lostcities.mcjty.lostcities.LostCities.lostCitiesImp.cleanUp();
         ForgeEventHandlers.cleanUp();
         AssetRegistries.reset();
         dimensionInfo.clear();
