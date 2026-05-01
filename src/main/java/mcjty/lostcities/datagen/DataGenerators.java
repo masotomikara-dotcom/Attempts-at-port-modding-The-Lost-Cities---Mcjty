@@ -5,7 +5,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import dev.architectury.event.EventResult;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 
-@Mod.EventBusSubscriber(modid = mcjty.lostcities.mcjty.lostcities.LostCities.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = mcjty.lostcities.LostCities.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent

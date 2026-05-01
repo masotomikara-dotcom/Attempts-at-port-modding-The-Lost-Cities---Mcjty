@@ -32,7 +32,7 @@ public class ErrorLogger {
     }
 
     public static void logChunkInfo(int chunkX, int chunkZ, IDimensionInfo provider) {
-        Logger logger = mcjty.lostcities.mcjty.lostcities.LostCities.LOGGER;
+        Logger logger = mcjty.lostcities.LostCities.LOGGER;
         try {
             ChunkCoord coord = new ChunkCoord(provider.getType(), chunkX, chunkZ);
             logger.info("IsCity: " + BuildingInfo.isCityRaw(coord, provider, provider.getProfile()));

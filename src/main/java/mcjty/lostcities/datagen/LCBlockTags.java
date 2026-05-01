@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 public class LCBlockTags extends BlockTagsProvider {
 
     public LCBlockTags(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider , ExistingFileHelper helper) {
-        super(generator.getPackOutput(), lookupProvider, mcjty.lostcities.mcjty.lostcities.LostCities.MODID, helper);
+        super(generator.getPackOutput(), lookupProvider, mcjty.lostcities.LostCities.MODID, helper);
     }
 
     private static final Set<TagKey<Block>> PLANT_TAGS = Set.of(
