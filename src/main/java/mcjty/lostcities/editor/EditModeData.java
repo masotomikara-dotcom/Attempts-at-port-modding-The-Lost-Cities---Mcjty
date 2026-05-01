@@ -1,7 +1,6 @@
 package mcjty.lostcities.editor;
 
 import mcjty.lostcities.varia.ChunkCoord;
-import mcjty.lostcities.varia.WorldTools;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
