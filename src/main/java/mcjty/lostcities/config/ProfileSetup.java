@@ -30,6 +30,7 @@ public class ProfileSetup {
         profile = new LostCityProfile("default", true);
         profile.setIconFile("textures/gui/icon_default.png");
         STANDARD_PROFILES.put(profile.getName(), profile);
+                                               } 
 
         profile = new LostCityProfile("cavern", true);
         profile.setDescription("This profile is meant for a cavern type world. There are lights in the building but the outside is very dark.");
