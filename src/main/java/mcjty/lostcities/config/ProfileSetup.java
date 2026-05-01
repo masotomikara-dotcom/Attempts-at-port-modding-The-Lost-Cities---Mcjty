@@ -442,8 +442,8 @@ public class ProfileSetup {
         STANDARD_PROFILES.put(profile.getName(), profile);
     }
 
-        public static void setupProfiles() {
-        LostCities.LOGGER.info("Lost Cities: Setting up profiles...");
+            public static void setupProfiles() {
+        LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }
 
