@@ -13,6 +13,7 @@ public interface IBuildingPart {
 
     String getMetaString(String key);
 
+import mcjty.lostcities.LostCities;
     String getName();
 
     char[][] getVslices();

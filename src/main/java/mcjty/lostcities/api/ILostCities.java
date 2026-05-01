@@ -13,6 +13,7 @@ public interface ILostCities {
 
     // MODID for Lost Cities
     String LOSTCITIES = "lostcities";
+import mcjty.lostcities.LostCities;
 
     // IMC message for getting ILostCities
     String GET_LOST_CITIES = "getLostCities";

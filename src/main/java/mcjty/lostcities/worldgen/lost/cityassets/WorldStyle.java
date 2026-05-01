@@ -13,6 +13,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import mcjty.lostcities.LostCities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -110,7 +111,7 @@ public class WorldStyle implements ILostCityAsset {
             }
         }
 
-        Pair<Float, String> randomFromList = LostCities.RANDOM.choose(random, ct, Pair::getLeft);
+        Pair<Float, String> randomFromList = mcjty.lostcities.varia.Tools.choose(random, ct, Pair::getLeft);
         if (randomFromList == null) {
             return null;
         } else {

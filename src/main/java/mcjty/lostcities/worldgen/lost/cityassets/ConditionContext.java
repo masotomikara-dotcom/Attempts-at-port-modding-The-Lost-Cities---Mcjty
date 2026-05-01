@@ -13,6 +13,7 @@ import java.util.function.Predicate;
 public abstract class ConditionContext {
     private final int level;        // Global level in world with 0 being to lowest possible level where a building section can be
     private final int floor;        // Level of the building with 0 being the ground floor. floor == floorsAboveGround means the top of the building section
+import mcjty.lostcities.LostCities;
     private final int floorsBelowGround;    // 0 means nothing below ground
     private final int floorsAboveGround;    // 1 means 1 floor above ground
     private final String part;

@@ -13,6 +13,7 @@ public class StuffObject implements ILostCityAsset {
     public StuffObject(StuffSettingsRE settings) {
         this.settings = settings;
         this.name = settings.getRegistryName();
+import mcjty.lostcities.LostCities;
     }
 
     @Override

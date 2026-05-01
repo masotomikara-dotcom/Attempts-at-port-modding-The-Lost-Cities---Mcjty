@@ -13,6 +13,7 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
+import mcjty.lostcities.LostCities;
             LCBlockTags blockTags = new LCBlockTags(generator, event.getLookupProvider(), event.getExistingFileHelper());
             generator.addProvider(event.includeServer(), blockTags);
         }

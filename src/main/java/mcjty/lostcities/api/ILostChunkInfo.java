@@ -13,6 +13,7 @@ public interface ILostChunkInfo {
 
     /**
      * Return true if this chunk represents a part of a city (building or street)
+import mcjty.lostcities.LostCities;
      */
     boolean isCity();
 

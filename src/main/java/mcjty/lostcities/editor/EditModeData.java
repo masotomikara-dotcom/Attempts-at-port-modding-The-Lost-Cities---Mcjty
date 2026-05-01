@@ -13,6 +13,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 
 import javax.annotation.Nonnull;
+import mcjty.lostcities.LostCities;
 import java.util.*;
 
 /**

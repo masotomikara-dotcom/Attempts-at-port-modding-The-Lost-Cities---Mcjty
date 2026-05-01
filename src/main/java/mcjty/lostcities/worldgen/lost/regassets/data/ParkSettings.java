@@ -13,6 +13,7 @@ public class ParkSettings {
     private final Boolean avoidFoliage;
     private final Boolean parkBorder;
     private final Boolean parkElevation;
+import mcjty.lostcities.LostCities;
     private final Integer parkStreetThreshold;
     private final Character parkElevationBlock;
     private final Character grassBlock;

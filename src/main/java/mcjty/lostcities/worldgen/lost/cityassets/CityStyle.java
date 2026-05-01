@@ -13,6 +13,7 @@ import net.minecraft.world.level.CommonLevelAccessor;
 import java.util.*;
 
 public class CityStyle implements ILostCityCityStyle {
+import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
 
@@ -417,7 +418,7 @@ public class CityStyle implements ILostCityCityStyle {
     }
 
     private static String getRandomFromList(Random random, List<ObjectSelector> list, ChunkCoord pos) {
-        ObjectSelector fromList = LostCities.RANDOM.choose(random, list, objectSelector -> {
+        ObjectSelector fromList = mcjty.lostcities.varia.Tools.choose(random, list, objectSelector -> {
             if (objectSelector.minSpawnDistance() > 0 || objectSelector.maxSpawnDistance() < Integer.MAX_VALUE) {
                 // Distance in objectSelector is in blocks whereas pos is in chunks
                 // Objects can only return 'factor' between minSpawnDistance and maxSpawnDistance

@@ -13,6 +13,7 @@ public record PartSelector(MonorailParts monoRailParts, HighwayParts highwayPart
     public static final Codec<PartSelector> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     MonorailParts.CODEC.optionalFieldOf("monorails").forGetter(l -> l.monoRailParts.get()),
+import mcjty.lostcities.LostCities;
                     HighwayParts.CODEC.optionalFieldOf("highways").forGetter(l -> l.highwayParts.get()),
                     RailwayParts.CODEC.optionalFieldOf("railways").forGetter(l -> l.railwayParts.get())
             ).apply(instance, (monorails, highways, railways) -> new PartSelector(

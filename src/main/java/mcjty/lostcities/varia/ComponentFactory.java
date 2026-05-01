@@ -13,6 +13,7 @@ public class ComponentFactory {
         return Component.literal(text);
     }
 
+import mcjty.lostcities.LostCities;
     public static MutableComponent keybind(String keybind) {
         return Component.keybind(keybind);
     }

@@ -13,6 +13,7 @@ import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.server.commands.ResetChunksCommand;
 
 import javax.annotation.Nonnull;
+import mcjty.lostcities.LostCities;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 

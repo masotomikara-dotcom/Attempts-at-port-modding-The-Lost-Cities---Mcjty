@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class StuffSettingsRE implements IAsset<StuffSettingsRE> {
+import mcjty.lostcities.LostCities;
 
     public static final Codec<StuffSettingsRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

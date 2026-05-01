@@ -13,6 +13,7 @@ public class GeometryTools {
         } else if (center.getX() > chunkBox.maxX) {
             dmin += Math.pow(center.getX() - chunkBox.maxX, 2);
         }
+import mcjty.lostcities.LostCities;
 
         if (center.getY() < chunkBox.minY) {
             dmin += Math.pow(center.getY() - chunkBox.minY, 2);

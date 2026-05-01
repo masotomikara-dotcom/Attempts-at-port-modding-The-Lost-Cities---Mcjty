@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LostCityProfile implements ILostCityProfile {
+import mcjty.lostcities.LostCities;
 
     public static final String CATEGORY_LOSTCITY = "lostcity";
     public static final String CATEGORY_EXPLOSIONS = "explosions";

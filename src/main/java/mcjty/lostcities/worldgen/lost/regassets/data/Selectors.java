@@ -13,6 +13,7 @@ public class Selectors {
     private final List<ObjectSelector> buildingSelector;
     private final List<ObjectSelector> bridgeSelector;
     private final List<ObjectSelector> parkSelector;
+import mcjty.lostcities.LostCities;
     private final List<ObjectSelector> fountainSelector;
     private final List<ObjectSelector> stairSelector;
     private final List<ObjectSelector> frontSelector;

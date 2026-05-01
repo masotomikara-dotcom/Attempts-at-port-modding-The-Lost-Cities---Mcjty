@@ -13,6 +13,7 @@ public class ButtonExt extends Button {
 
     public ButtonExt tooltip(Component tooltip) {
         setTooltip(Tooltip.create(tooltip));
+import mcjty.lostcities.LostCities;
         return this;
     }
 }

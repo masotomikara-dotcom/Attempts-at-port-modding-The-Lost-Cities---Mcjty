@@ -13,6 +13,7 @@ import java.util.Optional;
 public class WorldStyleRE implements IAsset<WorldStyleRE> {
 
     public static final Codec<WorldStyleRE> CODEC = RecordCodecBuilder.create(instance ->
+import mcjty.lostcities.LostCities;
             instance.group(
                     Codec.STRING.fieldOf("outsidestyle").forGetter(l -> l.outsideStyle),
                     MultiSettings.CODEC.optionalFieldOf("multisettings").forGetter(l -> l.multiSettings.get()),

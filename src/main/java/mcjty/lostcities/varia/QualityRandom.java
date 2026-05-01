@@ -13,6 +13,7 @@ public class QualityRandom extends Random {
 
     public QualityRandom(long seed) {
         u = seed ^ v;
+import mcjty.lostcities.LostCities;
         nextLong();
         v = u;
         nextLong();

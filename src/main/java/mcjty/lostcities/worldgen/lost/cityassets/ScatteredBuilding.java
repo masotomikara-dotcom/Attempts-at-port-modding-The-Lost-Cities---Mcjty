@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ScatteredBuilding implements ILostCityAsset {
+import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
     private final List<String> buildings;

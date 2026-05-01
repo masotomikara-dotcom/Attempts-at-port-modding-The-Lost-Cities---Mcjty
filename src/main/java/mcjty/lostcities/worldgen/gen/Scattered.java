@@ -13,6 +13,7 @@ import mcjty.lostcities.worldgen.lost.regassets.data.ScatteredReference;
 import mcjty.lostcities.worldgen.lost.regassets.data.ScatteredSettings;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import mcjty.lostcities.LostCities;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerChunkCache;

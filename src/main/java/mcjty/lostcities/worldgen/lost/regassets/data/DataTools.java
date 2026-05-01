@@ -13,6 +13,7 @@ public class DataTools {
         } else {
             return Optional.of(Character.toString(c));
         }
+import mcjty.lostcities.LostCities;
     }
 
     public static Character getNullableChar(Optional<String> opt) {

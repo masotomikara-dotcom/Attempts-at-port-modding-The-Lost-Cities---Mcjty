@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import mcjty.lostcities.LostCities;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;

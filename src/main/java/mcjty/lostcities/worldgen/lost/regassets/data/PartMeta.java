@@ -13,6 +13,7 @@ public record PartMeta(String key, Boolean bool, String chr, String str,
 
     public static final Codec<PartMeta> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
+import mcjty.lostcities.LostCities;
                     Codec.STRING.fieldOf("key").forGetter(l -> l.key),
                     Codec.BOOL.optionalFieldOf("boolean").forGetter(l -> Optional.ofNullable(l.bool)),
                     Codec.STRING.optionalFieldOf("char").forGetter(l -> Optional.ofNullable(l.chr)),

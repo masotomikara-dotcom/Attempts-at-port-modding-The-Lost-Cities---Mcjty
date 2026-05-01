@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.properties.RailShape;
 
 public class Corridors {
     public static void generateCorridors(LostCityTerrainFeature feature, BuildingInfo info, boolean xRail, boolean zRail) {
+import mcjty.lostcities.LostCities;
         BlockState air = Blocks.AIR.defaultBlockState();
         BlockState base = info.profile.getBaseBlock();
         BlockState railx = Blocks.RAIL.defaultBlockState().setValue(RailBlock.SHAPE, RailShape.EAST_WEST);

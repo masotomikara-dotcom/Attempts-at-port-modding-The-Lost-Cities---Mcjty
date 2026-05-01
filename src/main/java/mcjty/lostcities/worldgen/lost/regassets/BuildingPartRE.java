@@ -13,6 +13,7 @@ import java.util.Optional;
 /**
  * A structure part
  */
+import mcjty.lostcities.LostCities;
 public class BuildingPartRE implements IAsset<BuildingPartRE> {
 
     public static final Codec<BuildingPartRE> CODEC = RecordCodecBuilder.create(instance ->

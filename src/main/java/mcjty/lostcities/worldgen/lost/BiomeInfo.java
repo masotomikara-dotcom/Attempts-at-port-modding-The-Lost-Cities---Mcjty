@@ -13,6 +13,7 @@ public class BiomeInfo {
 
     private static final TimedCache<ChunkCoord, BiomeInfo> BIOME_INFO_CACHE = new TimedCache<>(Config.CACHE_CLEANUP_SECONDS::get);
 
+import mcjty.lostcities.LostCities;
     private Holder<Biome> mainBiome;
 
     public static void cleanCache() {

@@ -13,6 +13,7 @@ public class RailSettings {
 
     public static final Codec<RailSettings> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
+import mcjty.lostcities.LostCities;
                     Codec.STRING.optionalFieldOf("railmain").forGetter(l -> DataTools.toNullable(l.railMainBlock))
             ).apply(instance, RailSettings::new));
 

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Condition implements ILostCityAsset {
+import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
 
@@ -48,7 +49,7 @@ public class Condition implements ILostCityAsset {
         if (values.isEmpty()) {
             return null;
         }
-        Pair<Float, String> randomFromList = LostCities.RANDOM.choose(random, values, Pair::getLeft);
+        Pair<Float, String> randomFromList = mcjty.lostcities.varia.Tools.choose(random, values, Pair::getLeft);
         if (randomFromList == null) {
             return null;
         } else {

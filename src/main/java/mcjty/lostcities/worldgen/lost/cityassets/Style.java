@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Style implements ILostCityAsset {
+import mcjty.lostcities.LostCities;
 
     private final ResourceLocation name;
 

@@ -13,6 +13,7 @@ public class ResourceLocationMatcher implements Predicate<ResourceLocation> {
 
     public static final Codec<ResourceLocationMatcher> CODEC = RecordCodecBuilder.create(codec -> codec.group(
             Codec.STRING.listOf().optionalFieldOf("if_any").forGetter(ResourceLocationMatcher::getIfAny),
+import mcjty.lostcities.LostCities;
             Codec.STRING.listOf().optionalFieldOf("excluding").forGetter(ResourceLocationMatcher::getExcluding)
     ).apply(codec, ResourceLocationMatcher::new));
 

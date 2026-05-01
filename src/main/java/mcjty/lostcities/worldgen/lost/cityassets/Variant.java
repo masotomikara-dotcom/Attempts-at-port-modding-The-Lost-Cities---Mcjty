@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * A block variant
+import mcjty.lostcities.LostCities;
  */
 public class Variant implements ILostCityAsset {
 

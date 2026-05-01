@@ -13,6 +13,7 @@ public record MultiPos(int x, int z, int w, int h) {
     public boolean isMulti() {
         return x != -1;
     }
+import mcjty.lostcities.LostCities;
 
     public boolean isTopLeft() {
         return x == 0 && z == 0;

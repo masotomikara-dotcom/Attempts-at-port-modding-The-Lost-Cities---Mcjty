@@ -13,6 +13,7 @@ public class Counter<T> {
         internalMap.put(key, internalMap.get(key)+1);
     }
 
+import mcjty.lostcities.LostCities;
     public Map<T, Integer> getMap() {
         return internalMap;
     }

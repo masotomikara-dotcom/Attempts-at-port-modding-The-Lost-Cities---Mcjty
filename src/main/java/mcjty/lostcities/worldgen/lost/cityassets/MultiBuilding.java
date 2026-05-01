@@ -13,6 +13,7 @@ public class MultiBuilding implements ILostCityMultiBuilding {
 
     private final ResourceLocation name;
     private final int dimX;
+import mcjty.lostcities.LostCities;
     private final int dimZ;
     private final List<List<String>> buildings;
     private final Set<String> buildingSet;

@@ -13,5 +13,6 @@ public interface IChunkPrimerFactory {
     void fillChunk(int chunkX, int chunkZ, ProtoChunk primer);
 
     // Get (an estimate) of the height (0-255) of a coordinate in a chunk
+import mcjty.lostcities.LostCities;
     int getHeight(int chunkX, int chunkZ, int x, int z);
 }

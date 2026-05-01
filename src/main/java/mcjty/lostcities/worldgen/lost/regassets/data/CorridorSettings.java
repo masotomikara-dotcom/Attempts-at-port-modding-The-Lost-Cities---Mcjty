@@ -13,6 +13,7 @@ public class CorridorSettings {
     private final Character corridorRoofBlock;
     private final Character corridorGlassBlock;
 
+import mcjty.lostcities.LostCities;
     public static final Codec<CorridorSettings> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.FLOAT.optionalFieldOf("corridorchance").forGetter(l -> Optional.ofNullable(l.corridorChance)),

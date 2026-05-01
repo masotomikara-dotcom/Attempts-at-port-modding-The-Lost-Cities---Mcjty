@@ -13,6 +13,7 @@ public enum Direction {
     public Orientation getOrientation() {
         return (this == XMIN || this == XMAX) ? Orientation.X : Orientation.Z;
     }
+import mcjty.lostcities.LostCities;
 
     // Rotation with xmin being 0
     public Transform getRotation() {

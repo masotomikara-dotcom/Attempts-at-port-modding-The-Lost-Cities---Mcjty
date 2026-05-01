@@ -13,6 +13,7 @@ public class StyleRE implements IAsset<StyleRE> {
     public static final Codec<StyleRE> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.list(Codec.list(PaletteSelector.CODEC)).fieldOf("randompalettes").forGetter(l -> l.randomPaletteChoices)
+import mcjty.lostcities.LostCities;
             ).apply(instance, StyleRE::new));
 
     private ResourceLocation name;

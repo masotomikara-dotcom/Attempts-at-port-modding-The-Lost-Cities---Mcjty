@@ -13,6 +13,7 @@ import mcjty.lostcities.worldgen.lost.cityassets.BuildingPart;
 import mcjty.lostcities.worldgen.lost.regassets.data.RailwayParts;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import mcjty.lostcities.LostCities;
 
 public class Railways {
     public static void generateRailwayDungeons(LostCityTerrainFeature feature, BuildingInfo info) {

@@ -13,6 +13,7 @@ public class BooleanElement extends GuiElement {
     private final ButtonExt field;
     private final String attribute;
 
+import mcjty.lostcities.LostCities;
     public BooleanElement(GuiLCConfig gui, String page, int x, int y, String attribute) {
         super(page, x, y);
         this.gui = gui;

@@ -13,6 +13,7 @@ public class Statistics {
     private long minTime = Long.MAX_VALUE;
     private long maxTime = Long.MIN_VALUE;
 
+import mcjty.lostcities.LostCities;
     public void addTime(long time) {
         times[(int) (totalCnt % times.length)] = time;
         totalCnt++;

@@ -13,6 +13,7 @@ public record ChunkCoord(ResourceKey<Level> dimension, int chunkX, int chunkZ) {
 
     public ChunkCoord east() {
         return new ChunkCoord(dimension, chunkX + 1, chunkZ);
+import mcjty.lostcities.LostCities;
     }
 
     public ChunkCoord west() {

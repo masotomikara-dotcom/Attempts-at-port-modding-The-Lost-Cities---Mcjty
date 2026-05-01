@@ -13,6 +13,7 @@ import java.util.Optional;
 
 public record WorldSettings(
         RailwayAvoidance railwayAvoidance,
+import mcjty.lostcities.LostCities;
         int railPartHeight6,
         BlockState vineWest,
         BlockState vineEast,

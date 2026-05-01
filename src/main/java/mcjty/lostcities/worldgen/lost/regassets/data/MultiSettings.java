@@ -13,6 +13,7 @@ public record MultiSettings(int areasize, int minimum, int maximum, float correc
                     Codec.INT.fieldOf("minimum").forGetter(l -> l.minimum),
                     Codec.INT.fieldOf("maximum").forGetter(l -> l.maximum),
                     Codec.FLOAT.optionalFieldOf("correctstylefactor", 0.8f).forGetter(l -> l.correctStyleFactor),
+import mcjty.lostcities.LostCities;
                     Codec.INT.optionalFieldOf("attempts", 50).forGetter(l -> l.attempts)
             ).apply(instance, MultiSettings::new));
 

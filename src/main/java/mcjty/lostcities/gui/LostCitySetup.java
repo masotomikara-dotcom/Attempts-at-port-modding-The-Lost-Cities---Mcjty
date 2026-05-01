@@ -13,6 +13,7 @@ import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.server.packs.resources.CloseableResourceManager;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
 import net.minecraft.server.packs.resources.Resource;
+import mcjty.lostcities.LostCities;
 
 import java.util.List;
 import java.util.Map;

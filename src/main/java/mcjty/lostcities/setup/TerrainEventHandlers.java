@@ -13,6 +13,7 @@ public class TerrainEventHandlers {
 //            LostCityChunkGenerator provider = WorldTypeTools.getLostCityChunkGenerator(world);
 //            if (provider == null) {
 //                return;
+import mcjty.lostcities.LostCities;
 //            }
 //
 //            switch (event.getType()) {

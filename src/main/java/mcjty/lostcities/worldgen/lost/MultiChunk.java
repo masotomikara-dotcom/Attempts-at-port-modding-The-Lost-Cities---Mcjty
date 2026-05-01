@@ -13,6 +13,7 @@ import mcjty.lostcities.worldgen.lost.cityassets.CityStyle;
 import mcjty.lostcities.worldgen.lost.cityassets.MultiBuilding;
 import mcjty.lostcities.worldgen.lost.regassets.data.MultiSettings;
 import org.jetbrains.annotations.NotNull;
+import mcjty.lostcities.LostCities;
 
 import java.util.*;
 
@@ -99,7 +100,7 @@ public class MultiChunk {
         styleList.sort(Comparator.comparing(CityStyle::getName));
         List<CityStyle> styleForBuilding = new ArrayList<>();
         for (int i = 0 ; i < cnt ; i++) {
-            CityStyle cityStyle = LostCities.RANDOM.choose(rand, styleList, style -> (float) cityStyleCounter.get(style));
+            CityStyle cityStyle = mcjty.lostcities.varia.Tools.choose(rand, styleList, style -> (float) cityStyleCounter.get(style));
             String multiBuilding = cityStyle.getRandomMultiBuilding(rand, topleft);
             MultiBuilding mb = AssetRegistries.MULTI_BUILDINGS.get(provider.getWorld(), multiBuilding);
             if (mb == null) {

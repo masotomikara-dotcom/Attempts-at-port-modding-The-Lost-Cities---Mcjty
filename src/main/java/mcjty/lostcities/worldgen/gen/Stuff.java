@@ -13,6 +13,7 @@ import mcjty.lostcities.worldgen.lost.regassets.data.ResourceLocationMatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import mcjty.lostcities.LostCities;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;

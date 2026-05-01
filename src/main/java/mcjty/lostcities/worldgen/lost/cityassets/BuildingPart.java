@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+import mcjty.lostcities.LostCities;
  * A structure part
  */
 public class BuildingPart implements IBuildingPart, ILostCityAsset {

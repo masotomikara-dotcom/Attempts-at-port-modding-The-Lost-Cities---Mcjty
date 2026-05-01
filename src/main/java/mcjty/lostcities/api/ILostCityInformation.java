@@ -13,6 +13,7 @@ public interface ILostCityInformation {
     ILostChunkInfo getChunkInfo(int chunkX, int chunkZ);
 
     /**
+import mcjty.lostcities.LostCities;
      * Get the sphere that contains the given location. Doesn't depend on biomes so you can
      * use this during biome generation
      */

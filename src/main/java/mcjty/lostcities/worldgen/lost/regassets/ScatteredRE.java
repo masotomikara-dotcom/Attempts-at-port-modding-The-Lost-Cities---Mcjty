@@ -13,6 +13,7 @@ import java.util.Optional;
 public class ScatteredRE implements IAsset<ScatteredRE> {
 
     public static final Codec<ScatteredRE> CODEC = RecordCodecBuilder.create(instance ->
+import mcjty.lostcities.LostCities;
             instance.group(
                     Codec.list(Codec.STRING).optionalFieldOf("buildings").forGetter(l -> Optional.ofNullable(l.buildings)),
                     Codec.STRING.optionalFieldOf("multibuilding").forGetter(l -> Optional.ofNullable(l.multibuilding)),

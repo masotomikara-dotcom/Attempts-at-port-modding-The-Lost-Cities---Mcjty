@@ -13,6 +13,7 @@ public record PredefinedBuilding(String building, int relChunkX, int relChunkZ, 
                     Codec.INT.fieldOf("chunkz").forGetter(PredefinedBuilding::relChunkZ),
                     Codec.BOOL.optionalFieldOf("multi", false).forGetter(PredefinedBuilding::multi),
                     Codec.BOOL.optionalFieldOf("preventruins", false).forGetter(PredefinedBuilding::preventRuins)
+import mcjty.lostcities.LostCities;
             ).apply(instance, PredefinedBuilding::new));
 
 }

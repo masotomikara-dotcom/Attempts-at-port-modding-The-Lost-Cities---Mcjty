@@ -13,6 +13,7 @@ public class ScatteredSettings {
                     Codec.FLOAT.fieldOf("chance").forGetter(l -> l.chance),
                     Codec.INT.fieldOf("weightnone").forGetter(l -> l.weightnone),
                     Codec.list(ScatteredReference.CODEC).fieldOf("list").forGetter((l -> l.list))
+import mcjty.lostcities.LostCities;
             ).apply(instance, ScatteredSettings::new));
 
     private final int areasize;

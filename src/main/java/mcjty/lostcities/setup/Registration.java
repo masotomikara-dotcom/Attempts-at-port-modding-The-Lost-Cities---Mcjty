@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import dev.architectury.utils.Env;
 import net.minecraftforge.registries.DeferredRegister;
+import mcjty.lostcities.LostCities;
 import net.minecraftforge.registries.RegistryObject;
 
 public class Registration {

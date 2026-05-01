@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.CommonLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
+import mcjty.lostcities.LostCities;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
@@ -260,7 +261,7 @@ public class City {
         if (styles.isEmpty()) {
             cityStyleName = provider.getWorldStyle().getRandomCityStyle(provider, coord, cityStyleRandom);
         } else {
-            Pair<Float, String> fromList = LostCities.RANDOM.choose(cityStyleRandom, styles, Pair::getLeft);
+            Pair<Float, String> fromList = mcjty.lostcities.varia.Tools.choose(cityStyleRandom, styles, Pair::getLeft);
             if (fromList == null) {
                 cityStyleName = null;
             } else {

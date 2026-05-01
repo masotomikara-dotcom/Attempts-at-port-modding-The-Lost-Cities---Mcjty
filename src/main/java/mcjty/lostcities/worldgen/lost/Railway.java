@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static mcjty.lostcities.api.RailChunkType.*;
+import mcjty.lostcities.LostCities;
 import static mcjty.lostcities.worldgen.lost.Railway.RailDirection.*;
 
 public class Railway {

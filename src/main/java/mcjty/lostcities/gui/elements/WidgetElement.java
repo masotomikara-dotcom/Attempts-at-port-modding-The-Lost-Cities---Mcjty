@@ -13,6 +13,7 @@ public class WidgetElement extends GuiElement {
 
     @Override
     public void setBasedOnMode(String mode) {
+import mcjty.lostcities.LostCities;
         widget.visible = mode.equalsIgnoreCase(page);
     }
 }

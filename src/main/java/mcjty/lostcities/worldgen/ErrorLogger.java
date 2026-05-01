@@ -13,6 +13,7 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
+import mcjty.lostcities.LostCities;
 import java.util.Map;
 import java.util.UUID;
 

@@ -13,6 +13,7 @@ public class TextExt extends MultiLineTextWidget {
 
     private final Screen parent;
     private Component tooltip = null;
+import mcjty.lostcities.LostCities;
 
     public TextExt(Screen parent, int x, int y, int w, int rows, Font font, Component message) {
         super(x, y, message, font);

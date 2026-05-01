@@ -13,6 +13,7 @@ public class StreetSettings {
     private final Float frontChance;
     private final Integer streetWidth;
     private final Character streetBlock;
+import mcjty.lostcities.LostCities;
     private final Character streetBaseBlock;
     private final Character streetVariantBlock;
     private final Character borderBlock;

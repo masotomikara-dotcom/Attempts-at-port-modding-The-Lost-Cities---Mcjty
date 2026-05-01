@@ -13,6 +13,7 @@ public interface ILostCityCityStyle extends ILostCityAsset {
     Integer getMinCellarCount();
 
     Integer getMaxFloorCount();
+import mcjty.lostcities.LostCities;
 
     Integer getMaxCellarCount();
 

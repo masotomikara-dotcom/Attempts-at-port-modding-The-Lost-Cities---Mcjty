@@ -13,6 +13,7 @@ public class ScatteredReference {
                     Codec.STRING.fieldOf("name").forGetter(l -> l.name),
                     Codec.INT.fieldOf("weight").forGetter(l -> l.weight),
                     Codec.BOOL.optionalFieldOf("nearhighway").forGetter(l -> Optional.ofNullable(l.nearhighway)),
+import mcjty.lostcities.LostCities;
                     Codec.BOOL.optionalFieldOf("allowvoid").forGetter(l -> Optional.ofNullable(l.allowvoid)),
                     BiomeMatcher.CODEC.optionalFieldOf("biomes").forGetter(l -> Optional.ofNullable(l.biomeMatcher)),
                     Codec.INT.optionalFieldOf("maxheightdiff").forGetter(l -> Optional.ofNullable(l.maxheightdiff))

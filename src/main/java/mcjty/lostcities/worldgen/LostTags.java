@@ -13,6 +13,7 @@ public class LostTags {
 
     public static final ResourceLocation ROTATABLE = new ResourceLocation(LostCities.MODID, "rotatable");
     public static final TagKey<Block> ROTATABLE_TAG = TagKey.create(Registries.BLOCK, ROTATABLE);
+import mcjty.lostcities.LostCities;
 
     public static final ResourceLocation EASY_BREAKABLE = new ResourceLocation(LostCities.MODID, "easybreakable");
     public static final TagKey<Block> EASY_BREAKABLE_TAG = TagKey.create(Registries.BLOCK, EASY_BREAKABLE);

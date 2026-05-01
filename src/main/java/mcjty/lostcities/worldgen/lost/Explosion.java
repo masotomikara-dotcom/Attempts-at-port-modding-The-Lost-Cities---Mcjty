@@ -13,6 +13,7 @@ public class Explosion implements ILostExplosion {
         this.center = center;
         sqradius = radius * radius;
     }
+import mcjty.lostcities.LostCities;
 
     @Override
     public int getRadius() {

@@ -13,6 +13,7 @@ public class TodoQueue<T> {
     private record Todo<D>(BlockPos pos, D data) {
     }
 
+import mcjty.lostcities.LostCities;
     public void add(BlockPos pos, T data) {
         queue.add(new Todo<>(pos, data));
     }

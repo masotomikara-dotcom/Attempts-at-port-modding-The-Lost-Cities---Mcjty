@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import mcjty.lostcities.LostCities;
 public class ProfileSetup {
     public static final Map<String, LostCityProfile> STANDARD_PROFILES = new HashMap<>();
     private static void initStandardProfiles() {
@@ -411,8 +412,7 @@ public class ProfileSetup {
     }
     public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
-    }
     public static void setupProfiles() {
-        LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
+        mcjty.lostcities.LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.Heightmap;
 
+import mcjty.lostcities.LostCities;
 import javax.annotation.Nullable;
 import java.util.function.Predicate;
 
