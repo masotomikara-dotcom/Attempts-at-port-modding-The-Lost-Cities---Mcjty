@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# 1. Upgrade Gradle Wrapper
-echo "Updating Gradle wrapper..."
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
-# 2. Setup settings.gradle
-echo "Configuring settings.gradle..."
 cat <<EOM > settings.gradle
 pluginManagement {
     repositories {
@@ -16,8 +12,6 @@ pluginManagement {
 rootProject.name = 'lostcities'
 EOM
 
-# 3. Setup build.gradle
-echo "Configuring build.gradle..."
 cat <<EOM > build.gradle
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
@@ -37,8 +31,6 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
-    
-    # Using the official Architectury-compatible release of McJtyLib
     modImplementation "mcjty.lib:mcjtylib-1.20:1.20.1-8.0.3"
 }
 
@@ -47,14 +39,10 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# 4. Patch Java source files
-echo "Patching Java source files..."
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
 
-# 5. Generate Fabric Metadata
-echo "Generating fabric.mod.json..."
 mkdir -p src/main/resources
 cat <<EOM > src/main/resources/fabric.mod.json
 {
@@ -76,8 +64,6 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 6. Create Fabric Entrypoint
-echo "Creating Fabric Entrypoint..."
 mkdir -p src/main/java/mcjty/lostcities
 cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
 package mcjty.lostcities;
@@ -90,8 +76,6 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 7. Start Build (Cleaner logs)
-echo "Starting build process..."
 rm -rf libs/
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
