@@ -27,7 +27,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    maven { url "https://jitpack.io" }
+    maven { url "https://maven.blamejared.com/" }
     maven { url "https://api.modrinth.com/maven" }
 }
 
@@ -38,8 +38,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Use JitPack to build McJtyLib from source - much more reliable
-    modImplementation 'com.github.McJtyMods:McJtyLib:1.20-8.0.3'
+    # Using the official Architectury-compatible release of McJtyLib
+    modImplementation "mcjty.lib:mcjtylib-1.20:1.20.1-8.0.3"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -90,8 +90,8 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 7. Start Build (No stacktrace for cleaner logs)
+# 7. Start Build (Cleaner logs)
 echo "Starting build process..."
-rm -rf libs/ # Clean up corrupted jars
+rm -rf libs/
 chmod +x gradlew
 ./gradlew clean build 2>&1 | tee build_log.txt
