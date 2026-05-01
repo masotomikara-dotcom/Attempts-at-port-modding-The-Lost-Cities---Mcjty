@@ -110,7 +110,7 @@ public class WorldStyle implements ILostCityAsset {
             }
         }
 
-        Pair<Float, String> randomFromList = Tools.getRandomFromList(random, ct, Pair::getLeft);
+        Pair<Float, String> randomFromList = LostCities.RANDOM.choose(random, ct, Pair::getLeft);
         if (randomFromList == null) {
             return null;
         } else {

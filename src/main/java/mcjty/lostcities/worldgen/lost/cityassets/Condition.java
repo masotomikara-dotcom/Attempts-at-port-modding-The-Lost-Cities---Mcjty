@@ -48,7 +48,7 @@ public class Condition implements ILostCityAsset {
         if (values.isEmpty()) {
             return null;
         }
-        Pair<Float, String> randomFromList = Tools.getRandomFromList(random, values, Pair::getLeft);
+        Pair<Float, String> randomFromList = LostCities.RANDOM.choose(random, values, Pair::getLeft);
         if (randomFromList == null) {
             return null;
         } else {

@@ -50,7 +50,7 @@ public class LostCityFeature extends Feature<NoneFeatureConfiguration> {
                 WorldGenRegion region = (WorldGenRegion) level;
                 ChunkPos center = region.getCenter();
                 Holder<Biome> biome = region.getBiome(center.getMiddleBlockPosition(60));
-                if (biome.is(Tags.Biomes.IS_VOID)) {
+                if (biome.getKey().get().equals(Biomes.THE_VOID)) {
                     return false;
                 }
 

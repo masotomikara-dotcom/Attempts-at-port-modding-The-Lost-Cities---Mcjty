@@ -260,7 +260,7 @@ public class City {
         if (styles.isEmpty()) {
             cityStyleName = provider.getWorldStyle().getRandomCityStyle(provider, coord, cityStyleRandom);
         } else {
-            Pair<Float, String> fromList = Tools.getRandomFromList(cityStyleRandom, styles, Pair::getLeft);
+            Pair<Float, String> fromList = LostCities.RANDOM.choose(cityStyleRandom, styles, Pair::getLeft);
             if (fromList == null) {
                 cityStyleName = null;
             } else {

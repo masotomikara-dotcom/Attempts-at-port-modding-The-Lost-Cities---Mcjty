@@ -99,7 +99,7 @@ public class MultiChunk {
         styleList.sort(Comparator.comparing(CityStyle::getName));
         List<CityStyle> styleForBuilding = new ArrayList<>();
         for (int i = 0 ; i < cnt ; i++) {
-            CityStyle cityStyle = Tools.getRandomFromList(rand, styleList, style -> (float) cityStyleCounter.get(style));
+            CityStyle cityStyle = LostCities.RANDOM.choose(rand, styleList, style -> (float) cityStyleCounter.get(style));
             String multiBuilding = cityStyle.getRandomMultiBuilding(rand, topleft);
             MultiBuilding mb = AssetRegistries.MULTI_BUILDINGS.get(provider.getWorld(), multiBuilding);
             if (mb == null) {

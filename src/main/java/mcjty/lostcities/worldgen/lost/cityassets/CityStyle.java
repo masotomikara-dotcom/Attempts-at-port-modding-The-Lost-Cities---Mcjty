@@ -417,7 +417,7 @@ public class CityStyle implements ILostCityCityStyle {
     }
 
     private static String getRandomFromList(Random random, List<ObjectSelector> list, ChunkCoord pos) {
-        ObjectSelector fromList = Tools.getRandomFromList(random, list, objectSelector -> {
+        ObjectSelector fromList = LostCities.RANDOM.choose(random, list, objectSelector -> {
             if (objectSelector.minSpawnDistance() > 0 || objectSelector.maxSpawnDistance() < Integer.MAX_VALUE) {
                 // Distance in objectSelector is in blocks whereas pos is in chunks
                 // Objects can only return 'factor' between minSpawnDistance and maxSpawnDistance
