@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 1. Force Upgrade Gradle Wrapper to 8.7
+# 1. Upgrade Gradle Wrapper
 echo "Updating Gradle wrapper..."
 sed -i 's/gradle-7.3-bin.zip/gradle-8.7-bin.zip/g' gradle/wrapper/gradle-wrapper.properties
 
@@ -27,7 +27,8 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    flatDir { dirs 'libs' }
+    maven { url "https://jitpack.io" }
+    maven { url "https://api.modrinth.com/maven" }
 }
 
 dependencies {
@@ -37,8 +38,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Using the manually downloaded jar in libs folder
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Use JitPack to build McJtyLib from source - much more reliable
+    modImplementation 'com.github.McJtyMods:McJtyLib:1.20-8.0.3'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -61,7 +62,7 @@ cat <<EOM > src/main/resources/fabric.mod.json
   "id": "lostcities",
   "version": "1.20.1",
   "name": "LostCities",
-  "description": "Generate cities all over the world",
+  "description": "Port of Lost Cities to Fabric",
   "authors": ["McJty"],
   "license": "MIT",
   "environment": "*",
@@ -89,14 +90,8 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 7. Download McJtyLib Fabric directly from Modrinth CDN
-echo "Downloading stable McJtyLib Fabric JAR..."
-mkdir -p libs
-# Direct link to McJtyLib 8.0.3 Fabric for 1.20.1
-curl -L -s -o libs/mcjtylib-fabric.jar "https://cdn.modrinth.com/data/S83999m3/versions/X9U2W6Yk/mcjtylib-fabric-1.20.1-8.0.3.jar"
-
-# 8. Start Build
+# 7. Start Build (No stacktrace for cleaner logs)
 echo "Starting build process..."
-rm -rf build/
+rm -rf libs/ # Clean up corrupted jars
 chmod +x gradlew
-./gradlew clean build --stacktrace 2>&1 | tee build_log.txt
+./gradlew clean build 2>&1 | tee build_log.txt
