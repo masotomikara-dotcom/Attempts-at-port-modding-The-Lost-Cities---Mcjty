@@ -5,6 +5,7 @@ import mcjty.lostcities.worldgen.lost.regassets.VariantRE;
 import mcjty.lostcities.worldgen.lost.regassets.data.BlockEntry;
 import mcjty.lostcities.worldgen.lost.regassets.data.DataTools;
 import net.minecraft.resources.ResourceLocation;
+import mcjty.lostcities.varia.Tools;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.tuple.Pair;
 
