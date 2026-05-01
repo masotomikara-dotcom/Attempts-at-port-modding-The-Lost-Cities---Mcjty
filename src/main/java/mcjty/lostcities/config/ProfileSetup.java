@@ -29,8 +29,12 @@ public class ProfileSetup {
 
         profile = new LostCityProfile("default", true);
         profile.setIconFile("textures/gui/icon_default.png");
+
+        profile = new LostCityProfile("largecities", true);
+        profile = new LostCityProfile("largecities", true);
+
+        profile = new LostCityProfile("largecities", true);
         STANDARD_PROFILES.put(profile.getName(), profile);
-                                               } 
 
         profile = new LostCityProfile("cavern", true);
         profile.setDescription("This profile is meant for a cavern type world. There are lights in the building but the outside is very dark.");
@@ -433,13 +437,10 @@ public class ProfileSetup {
         profile.CITY_PERLIN_SCALE = 7.0;
         profile.CITY_PERLIN_OFFSET = 0.2;
         profile.CITY_PERLIN_INNERSCALE = 0.1;
-        profile.CITY_THRESHOLD = .1f;
-        profile.CITY_STYLE_THRESHOLD = .4f;
-        profile.CITY_STYLE_ALTERNATIVE = "citystyle_border";
-        profile.GENERATE_LIGHTING = true;
-        profile.BUILDING_MAXFLOORS = 9;
-        public static void setupProfiles() {
+        STANDARD_PROFILES.put(profile.getName(), profile);
+    }
+
+    public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }
-
