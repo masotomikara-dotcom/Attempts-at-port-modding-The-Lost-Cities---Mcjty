@@ -27,8 +27,7 @@ group = 'mcjty.lostcities'
 
 repositories {
     maven { url "https://maven.architectury.dev/" }
-    maven { url "https://api.modrinth.com/maven" }
-    maven { url "https://www.cursemaven.com" }
+    flatDir { dirs 'libs' }
 }
 
 dependencies {
@@ -38,8 +37,8 @@ dependencies {
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1'
     modImplementation 'dev.architectury:architectury-fabric:9.2.14'
     
-    // Correct Modrinth Maven format for McJtyLib Fabric
-    modImplementation "maven.modrinth:mcjtylib-fabric:8.0.3"
+    // Using the manually downloaded jar in libs folder
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -47,13 +46,13 @@ tasks.withType(JavaCompile).configureEach {
 }
 EOM
 
-# 4. Global Source Code Patching
+# 4. Patch Java source files
 echo "Patching Java source files..."
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.fml.common.Mod/dev.architectury.injectables.annotations.ExpectPlatform/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.eventbus.api.SubscribeEvent/dev.architectury.event.EventResult/g' {} +
 find src -type f -name "*.java" -exec sed -i 's/net.minecraftforge.common.MinecraftForge/dev.architectury.platform.Platform/g' {} +
 
-# 5. Create Fabric Metadata
+# 5. Generate Fabric Metadata
 echo "Generating fabric.mod.json..."
 mkdir -p src/main/resources
 cat <<EOM > src/main/resources/fabric.mod.json
@@ -76,7 +75,7 @@ cat <<EOM > src/main/resources/fabric.mod.json
 }
 EOM
 
-# 6. Create Entrypoint
+# 6. Create Fabric Entrypoint
 echo "Creating Fabric Entrypoint..."
 mkdir -p src/main/java/mcjty/lostcities
 cat <<EOM > src/main/java/mcjty/lostcities/FabricEntrypoint.java
@@ -90,8 +89,14 @@ public class FabricEntrypoint implements ModInitializer {
 }
 EOM
 
-# 7. Final Cleanup and Build
-echo "Starting clean build..."
-rm -rf libs/ # Delete the local libs folder to prevent corrupted jar errors
+# 7. Download McJtyLib Fabric directly from Modrinth CDN
+echo "Downloading stable McJtyLib Fabric JAR..."
+mkdir -p libs
+# Direct link to McJtyLib 8.0.3 Fabric for 1.20.1
+curl -L -s -o libs/mcjtylib-fabric.jar "https://cdn.modrinth.com/data/S83999m3/versions/X9U2W6Yk/mcjtylib-fabric-1.20.1-8.0.3.jar"
+
+# 8. Start Build
+echo "Starting build process..."
+rm -rf build/
 chmod +x gradlew
 ./gradlew clean build --stacktrace 2>&1 | tee build_log.txt
