@@ -40,7 +40,7 @@ public class LostCitiesImp implements ILostCities {
 
     @Override
     public void registerDimension(ResourceKey<Level> key, String profile) {
-        Config.registerLostCityDimension(key, profile);
+        // Config.registerLostCityDimension(key, profile);
     }
 
     @Override
