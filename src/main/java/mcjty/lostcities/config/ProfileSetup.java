@@ -442,12 +442,8 @@ public class ProfileSetup {
         STANDARD_PROFILES.put(profile.getName(), profile);
     }
 
-    public static void setupProfiles() {
-        Path path = FMLPaths.CONFIGDIR.get();
-        Path profileDir = Paths.get(path.toString(), "lostcities/profiles");
-
-        LostCities.LOGGER.info("Creating standard profiles into 'config/lostcities/profiles'");
-
-        }
+        public static void setupProfiles() {
+        LostCities.LOGGER.info("Lost Cities: Setting up profiles...");
     }
 }
+
