@@ -49,7 +49,7 @@ public class LostCityFeature extends Feature<NoneFeatureConfiguration> {
                 WorldGenRegion region = (WorldGenRegion) level;
                 ChunkPos center = region.getCenter();
                 Holder<Biome> biome = region.getBiome(center.getMiddleBlockPosition(60));
-                if (biome.getKey().get().equals(Biomes.THE_VOID)) {
+                if (biome.is(net.minecraft.world.level.biome.Biomes.THE_VOID)) {
                     return false;
                 }
 
@@ -94,7 +94,7 @@ public class LostCityFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void cleanUp() {
-        mcjty.lostcities.mcjty.lostcities.LostCities.lostCitiesImp.cleanUp();
+        mcjty.lostcities.LostCities.lostCitiesImp.cleanUp();
         ForgeEventHandlers.cleanUp();
         AssetRegistries.reset();
         dimensionInfo.clear();

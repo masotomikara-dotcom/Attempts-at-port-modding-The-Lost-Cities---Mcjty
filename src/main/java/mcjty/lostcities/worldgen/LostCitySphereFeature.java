@@ -27,7 +27,7 @@ public class LostCitySphereFeature extends Feature<NoneFeatureConfiguration> {
                 WorldGenRegion region = (WorldGenRegion) level;
                 ChunkPos center = region.getCenter();
                 Holder<Biome> biome = region.getBiome(center.getMiddleBlockPosition(60));
-                if (biome.getKey().get().equals(Biomes.THE_VOID)) {
+                if (biome.is(net.minecraft.world.level.biome.Biomes.THE_VOID)) {
                     return false;
                 }
 

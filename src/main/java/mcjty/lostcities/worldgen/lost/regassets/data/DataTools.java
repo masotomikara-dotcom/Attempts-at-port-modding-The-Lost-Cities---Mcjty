@@ -19,7 +19,7 @@ public class DataTools {
     }
 
     public static String toName(ResourceLocation rl) {
-        if (rl.getNamespace().equals(mcjty.lostcities.mcjty.lostcities.LostCities.MODID)) {
+        if (rl.getNamespace().equals(mcjty.lostcities.LostCities.MODID)) {
             return rl.getPath();
         } else {
             return rl.toString();
@@ -30,7 +30,7 @@ public class DataTools {
         if (name.contains(":")) {
             return new net.minecraft.resources.ResourceLocation(name);
         } else {
-            return new net.minecraft.resources.ResourceLocation(mcjty.lostcities.mcjty.lostcities.LostCities.MODID, name);
+            return new net.minecraft.resources.ResourceLocation(mcjty.lostcities.LostCities.MODID, name);
         }
     }
 }

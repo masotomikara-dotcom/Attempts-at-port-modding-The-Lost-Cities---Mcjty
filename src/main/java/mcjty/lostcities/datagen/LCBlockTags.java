@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 public class LCBlockTags extends BlockTagsProvider {
 
     public LCBlockTags(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider , ExistingFileHelper helper) {
-        super(generator.getPackOutput(), lookupProvider, mcjty.lostcities.mcjty.lostcities.LostCities.MODID, helper);
+        super(generator.getPackOutput(), lookupProvider, mcjty.lostcities.LostCities.MODID, helper);
     }
 
     private static final Set<TagKey<Block>> PLANT_TAGS = Set.of(
@@ -37,7 +37,7 @@ public class LCBlockTags extends BlockTagsProvider {
             tag(LostTags.FOLIAGE_TAG).addTag(tag);
         }
         tag(LostTags.EASY_BREAKABLE_TAG).addTags(Tags.Blocks.GLASS);
-        for (Block block : net.minecraft.core.registries.BuiltInRegistries.BLOCK.gets()) {
+        for (Block block : net.minecraft.core.registries.net.minecraft.core.registries.BuiltInRegistries.BLOCK.gets()) {
             if (block.defaultBlockState().getLightEmission() > 0) {
                 tag(LostTags.LIGHTS_TAG).add(block);
             }
