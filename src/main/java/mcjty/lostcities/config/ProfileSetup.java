@@ -437,7 +437,8 @@ public class ProfileSetup {
         profile.CITY_STYLE_ALTERNATIVE = "citystyle_border";
         profile.GENERATE_LIGHTING = true;
         profile.BUILDING_MAXFLOORS = 9;
-    public static void setupProfiles() {
+        public static void setupProfiles() {
         LostCities.LOGGER.info("Lost Cities: Profiles initialized.");
     }
 }
+
